@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from '../../styles/Home.module.css'
-import { Layout, Button } from 'antd'
+import { Layout, Image } from 'antd'
 import Link from 'next/link';
-import { HomeOutlined } from '@ant-design/icons'
 import RCEFCMenu from '../../components/menu'
+import headerStyles from '../../styles/header.module.css'
 
 const { Header, Content, Footer } = Layout;
 
@@ -12,14 +12,21 @@ class LayoutV1 extends React.Component {
         return (
             <React.Fragment>
                 <Layout>
-                    <Header>
+                    <Header className={headerStyles.header}>
                         <div className={styles.logo}>
                             <Link href="/">
-                                <Button ghost>
-                                    <HomeOutlined style={{ color: 'white' }} />
-                                    <span style={{margin:'0 0.5em'}}/>
-                                    RCEFC
-                                </Button>
+                                <div className={headerStyles.site_logo}>
+                                    <div>
+                                        <Image
+                                            src='http://english.rcefc.org/wp-content/uploads/2020/12/rcefc_logo.png'
+                                            width="24px"
+                                            height="24px"
+                                        />
+                                    </div>
+                                    <div>
+                                        RCEFC
+                                    </div>
+                                </div>
                             </Link>
                         </div>
                         <RCEFCMenu />

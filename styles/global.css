@@ -4,3 +4,19 @@ body {
     margin: 0;
     font-family: Epilogue;
 }
+
+.black {
+    background: black !important;
+    color: white !important;
+}
+
+.white {
+    background: white !important;
+    color: black !important;
+}
+
+.cards_three {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}

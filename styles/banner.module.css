@@ -1,0 +1,58 @@
+.large_banner {
+    width: 100%;
+    padding: 10em 0 10em 5em;
+}
+
+.large_banner h1 {
+    font-size: 72px;
+    font-weight: 600;
+}
+
+.large_banner p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5em 0;
+}
+
+.banner_content {
+    max-width: 45%
+}
+
+.banner_content button {
+    margin-right: 2em;
+}
+
+.small_banner {
+    width: 100%;
+    padding: 5em 0 5em 5em;
+}
+
+.small_banner h1 {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.small_banner p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5em 0;
+}
+
+/**********************************************
+****************CARD***************************
+***********************************************/
+
+.card {
+    padding: 15em 2em;
+    flex-grow: 1;
+    width: 33%;
+    text-align: center;
+}
+
+.card_content h3{
+    font-size: 34px
+}
+
+.card_content p {
+    font-size: 18px
+}
