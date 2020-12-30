@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/Home.module.css'
-import { Layout } from 'antd'
+import { Layout, Button } from 'antd'
 import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons'
 import RCEFCMenu from '../../components/menu'
@@ -15,11 +15,11 @@ class LayoutV1 extends React.Component {
                     <Header>
                         <div className={styles.logo}>
                             <Link href="/">
-                                <span>
+                                <Button ghost>
                                     <HomeOutlined style={{ color: 'white' }} />
                                     <span style={{margin:'0 0.5em'}}/>
                                     RCEFC
-                                </span>
+                                </Button>
                             </Link>
                         </div>
                         <RCEFCMenu />
