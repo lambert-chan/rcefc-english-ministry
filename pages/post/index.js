@@ -14,6 +14,7 @@ const Post = ({ allPosts }) => (
         <Head>
             <title>Latest Post articles</title>
             <link rel='icon' href='/favicon.ico' />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
         </Head>
 
         <main>

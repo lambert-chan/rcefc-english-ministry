@@ -11,8 +11,8 @@ class LayoutV1 extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Layout>
-                    <Header className={headerStyles.header}>
+                <Layout style={{textAlign:'left'}}>
+                    <Header className={headerStyles.header + " " + this.props.className}>
                         <div className={styles.logo}>
                             <Link href="/">
                                 <div className={headerStyles.site_logo}>
@@ -29,7 +29,7 @@ class LayoutV1 extends React.Component {
                                 </div>
                             </Link>
                         </div>
-                        <RCEFCMenu />
+                        <RCEFCMenu className={this.props.className}/>
                     </Header>
                     <Content>
                         {this.props.children}

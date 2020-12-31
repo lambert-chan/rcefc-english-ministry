@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Button } from 'antd'
+import { Button, Carousel } from 'antd'
 import LayoutV1 from '../templates/layout_v1/layout'
 import { LargeBanner, SmallBanner } from '../components/banners'
 import { Card } from '../components/cards'
@@ -18,23 +18,64 @@ export default function Home() {
 
       <main>
         <LayoutV1>
+          <Carousel autoplay>
 
-          <LargeBanner className='black'>
-            <h1 style={{ color: 'white' }}>Following Jesus</h1>
-            <p>We exist to glorify God by making His gospel known to the world and nurturing followers of Jesus Christ within a transformitive community.</p>
-            <div>
-              <Link href="/worship-sessions">
-                <Button>
-                  Join an online service
+            {/**BANNER ONE */}
+            <LargeBanner className='black'>
+              <h1 style={{ color: 'white' }}>Following Jesus</h1>
+              <p>We exist to glorify God by making His gospel known to the world and nurturing followers of Jesus Christ within a transformitive community.</p>
+              <div>
+                <Link href="/worship-sessions">
+                  <Button>
+                    Join an online service
                 </Button>
-              </Link>
-              <Link href="/contacts">
-                <Button ghost>
-                  Get in touch
+                </Link>
+                <Link href="/contacts">
+                  <Button ghost>
+                    Get in touch
                 </Button>
-              </Link>
-            </div>
-          </LargeBanner>
+                </Link>
+              </div>
+            </LargeBanner>
+
+            {/**BANNER TWO */}
+            <LargeBanner className='black'>
+              <h1 style={{ color: 'white' }}>Following Jesus2</h1>
+              <p>We exist to glorify God by making His gospel known to the world and nurturing followers of Jesus Christ within a transformitive community.</p>
+              <div>
+                <Link href="/worship-sessions">
+                  <Button>
+                    Join an online service
+                </Button>
+                </Link>
+                <Link href="/contacts">
+                  <Button ghost>
+                    Get in touch
+                </Button>
+                </Link>
+              </div>
+            </LargeBanner>
+
+            {/**BANNER THREE */}
+            <LargeBanner className='black'>
+              <h1 style={{ color: 'white' }}>Following Jesus3</h1>
+              <p>We exist to glorify God by making His gospel known to the world and nurturing followers of Jesus Christ within a transformitive community.</p>
+              <div>
+                <Link href="/worship-sessions">
+                  <Button>
+                    Join an online service
+                </Button>
+                </Link>
+                <Link href="/contacts">
+                  <Button ghost>
+                    Get in touch
+                </Button>
+                </Link>
+              </div>
+            </LargeBanner>
+
+          </Carousel>
+
 
           <SmallBanner className="white">
             <h1>Something for everyone</h1>

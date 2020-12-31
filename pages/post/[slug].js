@@ -3,8 +3,6 @@ import Head from 'next/head'
 
 import { getAllPostsWithSlug, getMenu, getPost, getPostWithSlug } from '../../lib/api'
 
-import styles from '../../styles/Home.module.css'
-import postStyles from '../../styles/post.module.css'
 import LayoutV1 from '../../templates/layout_v1/layout'
 
 export default function Post({ postData }) {
@@ -24,6 +22,7 @@ export default function Post({ postData }) {
             <Head>
                 <title>{postData ? postData.title : 'Default Post Title'}</title>
                 <link rel='icon' href="/favicon/ico" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
             </Head>
 
             <main style={{textAlign: 'center'}}>
