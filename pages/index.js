@@ -5,8 +5,6 @@ import LayoutV1 from '../templates/layout_v1/layout'
 import { LargeBanner, SmallBanner } from '../components/banners'
 import { Card } from '../components/cards'
 
-import styles from '../styles/Home.module.css'
-
 export default function Home() {
   return (
     <div>
@@ -18,7 +16,7 @@ export default function Home() {
 
       <main>
         <LayoutV1>
-          <Carousel autoplay>
+          <Carousel autoplay speed={2000} autoplaySpeed={5000}>
 
             {/**BANNER ONE */}
             <LargeBanner className='black'>
@@ -80,7 +78,7 @@ export default function Home() {
           <SmallBanner className="white">
             <h1>Something for everyone</h1>
             <p>Maecenas accumsan lacus vel facilisis. Vitae suscipit
-tellus mauris a diam maecenas sed. Massa vitae tortor condimentum lacinia quis vel.</p>
+            tellus mauris a diam maecenas sed. Massa vitae tortor condimentum lacinia quis vel.</p>
           </SmallBanner>
 
           <div className="cards_three">
@@ -124,15 +122,6 @@ tellus mauris a diam maecenas sed. Massa vitae tortor condimentum lacinia quis v
             <p>Turpis egestas maecenas pharetra convallis posuere morbi leo. Semper auctor neque vitae tempus. Praesent tristique magna sit amet purus gravida.</p>
             <Button>Request Prayer</Button>
           </SmallBanner>
-
-          <div className={styles.home}>
-            <p>
-              All of the articles can be found here <br />
-              <Link href="/post/">
-                <Button type="primary">Website Posts Page</Button>
-              </Link>
-            </p>
-          </div>
 
         </LayoutV1>
 

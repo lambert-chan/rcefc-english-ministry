@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import { getAllMenuItems, getPage } from '../lib/api'
+import { getAllMenuItems, getPage } from '../../lib/api'
 import { Button } from 'antd'
 
-import LayoutV1 from '../templates/layout_v1/layout'
-import { LargeBanner } from '../components/banners'
+import LayoutV1 from '../../templates/layout_v1/layout'
+import { LargeBanner } from '../../components/banners'
 import { Fragment } from 'react'
+import { Link } from 'react-scroll'
 
 export default function Page({ pageData }) {
     const router = useRouter()
@@ -19,7 +20,7 @@ export default function Page({ pageData }) {
         <div>
             <Head>
                 <title>{pageData ? pageData.title : 'Default Page Title'}</title>
-                <link rel='icon' href="/favicon/ico" />
+                <link rel='icon' href="/favicon.ico" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
             </Head>
 
@@ -35,15 +36,15 @@ export default function Page({ pageData }) {
                                 />
                                 {pageData.slug == 'about' && (
                                     <div>
-                                        <Button>Our purpose</Button>
-                                        <Button>Our core values</Button>
+                                        <Button><Link to="our_purpose" smooth>Our purpose</Link></Button>
+                                        <Button><Link to="our_values" smooth>Our core values</Link></Button>
                                     </div>
                                 )}
                             </LargeBanner>
 
                             {pageData.slug == 'about' && (
                                 <Fragment>
-                                    <LargeBanner className="black">
+                                    <LargeBanner className="black" name="our_purpose" scroll>
                                         <h3 style={{ color: 'white' }}>OUR PURPOSE</h3>
                                         <div style={{ marginBottom: '4em' }}></div>
                                         <h2 style={{ color: 'white' }}>Making His gospel known</h2>
@@ -55,7 +56,7 @@ export default function Page({ pageData }) {
                                         <div>
                                             Turpis egestas maecenas pharetra convallis posuere morbi leo. Semper auctor neque vitae tempus. Praesent tristique magna sit amet purus gravida.</div>
                                     </LargeBanner>
-                                    <LargeBanner className="white">
+                                    <LargeBanner className="white" name="our_values">
                                         <h3>OUR CORE VALUES</h3>
                                         <div style={{ marginBottom: '4em' }}></div>
                                         <h2>Our God-given purpose</h2>

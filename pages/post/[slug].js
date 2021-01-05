@@ -21,7 +21,7 @@ export default function Post({ postData }) {
         <div>
             <Head>
                 <title>{postData ? postData.title : 'Default Post Title'}</title>
-                <link rel='icon' href="/favicon/ico" />
+                <link rel='icon' href="/favicon.ico" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
             </Head>
 

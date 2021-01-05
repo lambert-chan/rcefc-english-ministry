@@ -18,7 +18,7 @@ class LayoutV1 extends React.Component {
                                 <div className={headerStyles.site_logo}>
                                     <div>
                                         <Image
-                                            src='http://english.rcefc.org/wp-content/uploads/2020/12/rcefc_logo.png'
+                                            src='https://english.rcefc.org/wp-content/uploads/2020/12/rcefc_logo.png'
                                             width="24px"
                                             height="24px"
                                         />

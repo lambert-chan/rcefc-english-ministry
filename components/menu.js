@@ -25,7 +25,7 @@ const GetSubMenuItems = (data, parent) => {
         if (item?.parentId == id) {
             return (
                 <Menu.Item key={item?.id}>
-                    <Link href={parent?.path}>{item?.label}</Link>
+                    <Link href={item?.path}>{item?.label}</Link>
                 </Menu.Item>)
         }
     })
@@ -35,13 +35,13 @@ const NavMenu = ({ className }) => {
     // Query for nav menu from Apollo, this is where you pass in your GraphQL variables
     const { loading, error, data } = useQuery(NAV_MENU_DATA)
 
-    if (loading) return `<p>Loading...</p>`;
+    if (loading) return '';
     if (error) return `Error! ${error}`;
 
     let primaryMenuItems
     
     if (data) {
-        primaryMenuItems = data?.menuItems?.nodes.filter(node => node?.parentId == null)
+        primaryMenuItems = data?.menuItems?.nodes.filter(node => !node?.parentId)
     }
 
     return (
