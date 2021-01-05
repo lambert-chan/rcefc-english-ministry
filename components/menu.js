@@ -3,51 +3,55 @@ import { Menu } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu';
 import Link from 'next/link';
 import headerStyles from '../styles/header.module.css'
+import { useQuery, gql } from '@apollo/client'
 
-
-class RCEFCMenu extends React.Component {
-    render() {
-        return (
-            <Menu className={headerStyles.main_menu + " " + this.props.className} mode="horizontal" triggerSubMenuAction='click'>
-
-                <SubMenu title="Join us">
-                    <Menu.Item key='1'>
-                        <Link href="/worship-sessions/">Sunday Service</Link>
-                    </Menu.Item>
-                    <Menu.Item key='1'>
-                        <Link href="/worship-sessions/">Groups</Link>
-                    </Menu.Item>
-                    <Menu.Item key='1'>
-                        <Link href="/worship-sessions/">Events</Link>
-                    </Menu.Item>
-                </SubMenu>
-
-                <SubMenu title="About">
-                    <Menu.Item key='1'>
-                        <Link href="/about/">Values</Link>
-                    </Menu.Item>
-                    <Menu.Item key='2'>
-                        <Link href="/about/">Statement of Faith</Link>
-                    </Menu.Item>
-                    <Menu.Item key='3'>
-                        <Link href="/about/">Purpose Statement</Link>
-                    </Menu.Item>
-                    <Menu.Item key='4'>
-                        <Link href="/about/">Pastoral Team</Link>
-                    </Menu.Item>
-                </SubMenu>
-
-                <SubMenu title="Contact Us">
-                    <Menu.Item key='1'>
-                        <Link href="/contacts/">Address</Link>
-                    </Menu.Item>
-                    <Menu.Item key='2'>
-                        <Link href="/contacts/">Contact Information</Link>
-                    </Menu.Item>
-                </SubMenu>
-            </Menu>
-        )
+const NAV_MENU_DATA = gql`
+query menuItems {
+    menuItems(where: {location: PRIMARY}, first: 25) {
+      nodes {
+        url
+        label
+        parentId
+        id
+        path
+      }
     }
-};
+  }
+`
 
-export default RCEFCMenu
+const GetSubMenuItems = (data, parent) => {
+    let id = parent?.id
+    return data.map(item => {
+        if (item?.parentId == id) {
+            return (
+                <Menu.Item key={item?.id}>
+                    <Link href={parent?.path}>{item?.label}</Link>
+                </Menu.Item>)
+        }
+    })
+}
+
+const NavMenu = ({ className }) => {
+    // Query for nav menu from Apollo, this is where you pass in your GraphQL variables
+    const { loading, error, data } = useQuery(NAV_MENU_DATA)
+
+    if (loading) return `<p>Loading...</p>`;
+    if (error) return `Error! ${error}`;
+
+    let primaryMenuItems
+    
+    if (data) {
+        primaryMenuItems = data?.menuItems?.nodes.filter(node => node?.parentId == null)
+    }
+
+    return (
+        <Menu className={headerStyles.main_menu + " " + className} mode="horizontal" triggerSubMenuAction='click'>
+            {primaryMenuItems.map(menuItem =>
+                <SubMenu title={menuItem?.label} key={menuItem?.id}>
+                    {GetSubMenuItems(data?.menuItems?.nodes, menuItem)}
+                </SubMenu>)}
+        </Menu>
+    )
+}
+
+export default NavMenu
