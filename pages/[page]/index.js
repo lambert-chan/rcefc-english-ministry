@@ -144,7 +144,7 @@ export default function Page({ pageData }) {
                                             Pastor Kwok-Yin Ho, Pastor of Chinese Ministries<br />
                                             Rev. Philip Leung, Interim Pastor</div>
                                     </LargeBanner>
-                                    <LargeBanner className="white" id="statement-of-faith">
+                                    <LargeBanner className="white" id="status">
                                         <h3>OUR STATUS</h3>
                                         <div style={{ marginBottom: '4em' }}></div>
                                         <h2>November 19, 2020 Update</h2>
