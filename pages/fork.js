@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import React from 'react'
 
-import forkStyles from '../../styles/fork.module.css'
+import forkStyles from '../styles/fork.module.css'
 class Fork extends React.Component {
     render() {
         return (
