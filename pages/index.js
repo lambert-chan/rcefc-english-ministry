@@ -26,12 +26,12 @@ export default function Home() {
                 <Link href="/worship-sessions">
                   <Button>
                     Join an online service
-                </Button>
+                  </Button>
                 </Link>
                 <Link href="/contacts">
                   <Button ghost>
                     Get in touch
-                </Button>
+                  </Button>
                 </Link>
               </div>
             </LargeBanner>

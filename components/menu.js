@@ -23,9 +23,14 @@ const GetSubMenuItems = (data, parent) => {
     let id = parent?.id
     return data.map(item => {
         if (item?.parentId == id) {
+            let slug = item?.path.split('/')
+            let hash = slug > 2 ? item?.path : `${slug[1]}#${slug[2]}`
+            if (parent?.label == 'Join Us') {
+                hash = item?.path
+            }
             return (
                 <Menu.Item key={item?.id}>
-                    <Link href={item?.path}>{item?.label}</Link>
+                    <Link href={hash}>{item?.label}</Link>
                 </Menu.Item>)
         }
     })

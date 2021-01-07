@@ -1,0 +1,17 @@
+.fork_container {
+    background-image: url('../images/vancouver-background.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fork_container button {
+    background-color: #E0E0E0;
+}
