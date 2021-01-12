@@ -94,7 +94,7 @@ export default function Page({ pageData }) {
                                         <h4>OUR GOD-GIVEN PURPOSE</h4>
                                         <h2>We exist to glorify God by making his gospel known to the world, and nurturing followers of Jesus Christ within a transformative community.</h2>
                                         <span style={{ margin: '2em 0' }} />
-                                        <h4>DEFNITIONS</h4>
+                                        <h4>DEFINITIONS</h4>
                                         <div className={generalStyles.col_two}>
                                             <div>
                                                 <h3>Glorify God</h3>

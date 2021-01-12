@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 3em;
 }
 
 .large_banner h1 {
@@ -29,7 +30,7 @@
 }
 
 .banner_content {
-    width: 960px;
+    max-width: 960px;
 }
 
 .banner_content button {
@@ -42,6 +43,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 3em;
 }
 
 .small_banner h1 {
@@ -65,6 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    padding: 3em;
 }
 
 .page_banner h1 {
@@ -119,3 +122,32 @@
 /**********************************************
 ****************MEDIA QUERIES******************
 ***********************************************/
+
+@media screen and (max-width: 500px) {
+    .large_banner h1 {
+        font-size: 36px;
+    }
+    .large_banner h2 {
+        font-size: 18px;
+    }
+    .large_banner p {
+        margin: 2em 0;
+    }
+    .page_banner h1 {
+        font-size: 48px;
+    }
+    .card {
+        height: 240px;
+        width: 180px;
+        padding: 0.75em;
+    }
+    .card_content h3{
+        font-size: 26px;
+    }
+    .card_content p {
+        font-size: 12px;
+    }
+    .card_content button {
+        top: 0;
+    }
+}

@@ -1,5 +1,7 @@
 .row {
     width: 960px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .col_two {
@@ -24,4 +26,17 @@
 
 .col_two div p {
     margin: 0;
+}
+
+/**********************************************
+****************MEDIA QUERIES******************
+***********************************************/
+
+@media screen and (max-width: 500px) {
+    .col_two {
+        flex-direction: column;
+    }
+    .col_two div {
+        width: 100%;
+    }
 }
