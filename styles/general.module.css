@@ -1,0 +1,27 @@
+.row {
+    width: 960px;
+}
+
+.col_two {
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+    justify-content: space-evenly;
+    padding: 4em 0;
+}
+
+.col_two div {
+    width: 50%;
+}
+
+.col_two div h3 {
+    font-size: 34px;
+}
+
+.col_two div h5 {
+    font-size: 18px;
+    margin-bottom: 1em;
+}
+
+.col_two div p {
+    margin: 0;
+}

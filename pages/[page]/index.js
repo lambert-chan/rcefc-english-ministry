@@ -2,11 +2,11 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 
 import { getAllMenuItems, getPage } from '../../lib/api'
-import { Button } from 'antd'
 
 import LayoutV1 from '../../templates/layout_v1/layout'
-import { LargeBanner } from '../../components/banners'
-import { Link } from 'react-scroll'
+import { PageBanner, LargeBanner, SmallBanner } from '../../components/banners'
+import { getRandomTheme } from '../index'
+import generalStyles from '../../styles/general.module.css'
 
 export default function Page({ pageData }) {
     const router = useRouter()
@@ -15,10 +15,11 @@ export default function Page({ pageData }) {
         return <p>hmm... there's an error</p>
     }
 
+    let theme = getRandomTheme();
     return (
         <div>
             <Head>
-                <title>{pageData ? pageData.title : 'Default Page Title'}</title>
+                <title>{pageData ? pageData.title : 'RCEFC'}</title>
                 <link rel='icon' href="/favicon.ico" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
             </Head>
@@ -27,20 +28,14 @@ export default function Page({ pageData }) {
                 {router.isFallback ? (
                     <h2>Loading...</h2>
                 ) : (
-                        <LayoutV1 className="black">
-                            <LargeBanner className="white">
+                        <LayoutV1>
+                            <PageBanner className={theme}>
                                 <h1>{pageData ? pageData.title : ''}</h1>
                                 <div
                                     dangerouslySetInnerHTML={{ __html: pageData.content }}
                                 />
-                                {pageData.slug == 'about' && (
-                                    <div>
-                                        <Button><Link to="purpose-statement" smooth>Our purpose</Link></Button>
-                                        <Button><Link to="core-values" smooth>Our core values</Link></Button>
-                                    </div>
-                                )}
-                            </LargeBanner>
-                            
+                            </PageBanner>
+
                             {/**Hard coded - Join Us Banners */}
                             {pageData.slug == 'join-us' && (
                                 <>
@@ -84,9 +79,9 @@ export default function Page({ pageData }) {
                                         <div style={{ marginBottom: '4em' }}></div>
                                         <h2>Check out all our children programs</h2>
                                         <div>
-                                            AWANA Club<br/>	
-                                            Sunday School<br/>	
-                                            Children Worship<br/>	
+                                            AWANA Club<br />
+                                            Sunday School<br />
+                                            Children Worship<br />
                                             Nursery</div>
                                     </LargeBanner>
                                 </>
@@ -95,66 +90,144 @@ export default function Page({ pageData }) {
                             {/**Hard coded - About Banners */}
                             {pageData.slug == 'about' && (
                                 <>
-                                    <LargeBanner className="black" id="purpose-statement">
-                                        <h3 style={{ color: 'white' }}>OUR PURPOSE</h3>
-                                        <div style={{ marginBottom: '4em' }}></div>
-                                        <h2 style={{ color: 'white' }}>Making His gospel known</h2>
-                                        <div>
-                                            Est velit egestas dui id ornare arcu. Nec ullamcorper sit amet risus nullam eget. Pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Leo duis ut diam quam nulla porttitor. Ultricies leo integer malesuada nunc vel risus.
-                                            Vel orci porta non pulvinar neque laoreet.</div>
-                                        <div style={{ border: '1px solid white', margin: '3em 0' }}></div>
-                                        <h2 style={{ color: 'white' }}>Nurturing followers of Jesus Christ</h2>
-                                        <div>
-                                            Turpis egestas maecenas pharetra convallis posuere morbi leo. Semper auctor neque vitae tempus. Praesent tristique magna sit amet purus gravida.</div>
-                                    </LargeBanner>
-                                    <LargeBanner className="white" id="core-values">
-                                        <h3>OUR CORE VALUES</h3>
-                                        <div style={{ marginBottom: '4em' }}></div>
-                                        <h2>Our God-given purpose</h2>
-                                        <div>
-                                            Maecenas accumsan lacus vel facilisis. Vitae suscipit
-                                            tellus mauris a diam maecenas sed. Massa vitae tortor condimentum lacinia quis vel.</div>
-                                    </LargeBanner>
-                                    <LargeBanner className="black" id="vision">
-                                        <h3 style={{ color: 'white' }}>OUR VISION</h3>
-                                        <div style={{ marginBottom: '4em' }}></div>
-                                        <h2 style={{ color: 'white' }}>RCEFC English Ministries Vision Statement</h2>
-                                        <div>
-                                            In seeking to fulfill our God-given purpose, the English Ministries of RCEFC will strive to be a church that:<br />
-                                            Welcomes people from all walks of life<br />
-                                            Equips people for their God-given calling<br />
-                                            Sends people out to impact our community</div>
-                                    </LargeBanner>
-                                    <LargeBanner className="white" id="statement-of-faith">
-                                        <h3>OUR STATEMENT OF FAITH</h3>
-                                        <div style={{ marginBottom: '4em' }}></div>
-                                        <h2>We believe:</h2>
-                                        <div>
-                                            RCEFC is part of the association of churches that make up the Evangelical Free Church of Canada (EFCC)<br />
-                                            Maecenas accumsan lacus vel facilisis. Vitae suscipit
-                                            tellus mauris a diam maecenas sed. Massa vitae tortor condimentum lacinia quis vel.</div>
-                                    </LargeBanner>
-                                    <LargeBanner className="black" id="vision">
-                                        <h3 style={{ color: 'white' }}>OUR PASTORAL TEAM</h3>
-                                        <div style={{ marginBottom: '4em' }}></div>
-                                        <h2 style={{ color: 'white' }}>Meet our team</h2>
-                                        <div>
-                                            Pastor William Burgess, Pastor of English Ministries<br />
-                                            Rev. Edmond Fong, Pastor of Chinese Ministries<br />
-                                            Pastor Kwok-Yin Ho, Pastor of Chinese Ministries<br />
-                                            Rev. Philip Leung, Interim Pastor</div>
-                                    </LargeBanner>
-                                    <LargeBanner className="white" id="status">
-                                        <h3>OUR STATUS</h3>
-                                        <div style={{ marginBottom: '4em' }}></div>
-                                        <h2>November 19, 2020 Update</h2>
-                                        <div>
-                                            Phase 2 of the plan which permits up to 50 people to gather at church was originally set to begin on Oct. 1.
-                                            However due to the rising covid cases and additional restrictions, we will delay the Phase 2 reopening to a later date.
-                                            Currently, the church is closed for gatherings.
-                                            Furthermore, English Ministry will begin to conduct Sunday worship services online through Zoom.
-                                            Please go to the media page for further details.</div>
-                                    </LargeBanner>
+                                    <SmallBanner className="white" id="purpose-statement">
+                                        <h4>OUR GOD-GIVEN PURPOSE</h4>
+                                        <h2>We exist to glorify God by making his gospel known to the world, and nurturing followers of Jesus Christ within a transformative community.</h2>
+                                        <span style={{ margin: '2em 0' }} />
+                                        <h4>DEFNITIONS</h4>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Glorify God</h3>
+                                            </div>
+                                            <div>
+                                                <p>God is infinitely holy, perfect, and loving. To glorify God represents our desire to make His beauty and majesty known to the world because He is infinitely worthy of our attention and praise. Since God created humanity to be in relationship with Him, our greatest blessing is to intimately know and be known by such a God.</p>
+                                            </div>
+                                        </div>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>His Gospel</h3>
+                                            </div>
+                                            <div>
+                                                <p>The Gospel describes God’s plan for restoring humanity from sin and self-destruction. This plan has been progressively revealed and carried out by God through human history and is explicitly revealed to us through the Scriptures. Since God’s saving plan is for all of humanity, our desire is to make it known to the world through every aspect of our lives.</p>
+                                            </div>
+                                        </div>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Followers of Jesus Christ</h3>
+                                            </div>
+                                            <div>
+                                                <p>To follow Jesus Christ is to completely trust one’s life to the truth that Jesus sacrificed his own life to save humanity and to commit oneself to a lifelong journey of becoming like Jesus Christ in character and in action.</p>
+                                            </div>
+                                        </div>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Transformative community</h3>
+                                            </div>
+                                            <div>
+                                                <p>Transformative community reflects our desire to enter into life-changing relationships with one another. Life-changing community challenges one another to work out the implications of following Jesus Christ in this world. At the same time, since this is a difficult journey, our desire is to foster transparent and supportive community that reflects the love and grace of God.</p>
+                                            </div>
+                                        </div>
+                                    </SmallBanner>
+                                    <SmallBanner className={theme} id="vision">
+                                        <h4>VISION STATEMENT</h4>
+                                        <h2>In seeking to fulfull our God-given purpose, we strive to
+be a church that welcomes people from all walks of life, equips people for their God-given calling, and sends people out to impact or community.</h2>
+                                    </SmallBanner>
+                                    <SmallBanner className="white" id="core-values">
+                                        <h4>CORE VALUES</h4>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Biblical authority</h3>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    We believe that the Bible is the complete revelation of God’s will for humanity. It is the sole and final authority for faith and for life. Thus, we value the teaching and preaching of God’s word accurately and in a culturally relevant manner.<br />
+                                                    Furthermore, since it is the foundation of a God-honouring life, we value life transformation as people respond with their lives to the Word of God (2 Tim. 3:14-17; 2 Tim. 4:1-5; Jas 1:22-25).
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Authentic relationships</h3>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    We believe that life transformation and discipleship were intended by God to occur most effectively in the context of community. Thus, the experience of love, grace, forgiveness, belonging, discipline, and accountability (to name a few) occur as we choose to do life together.<br />
+                                                    Therefore, our desire is to see all people relationally and intimately connected to a component of community life within the church (Heb. 10:24-25; Jas 5:13-16).
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Proactive missions</h3>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    We believe that the church is God’s vehicle of communicating His Gospel to the world. As such, we believe that every follower of Jesus Christ must be an active and intentional testimony of His Gospel in order to impact the world in word and deed both locally and globally (Matt. 5:13-16; Matt. 28:18-20; Acts 1:8; James 1:27).
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Prayer-dependent, everyday living</h3>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    We believe God invites us into new life with Him that is to be empowered by the Holy Spirit and enabled through consistent and faithful prayer. Our desire is to see prayer weaved into the very fabric of our lives and church community so that we might become a church that truly impacts homes, communities, and the world (Prov 15:29; Matt. 6:9-13; 1 John 5:14-15; Eph. 6:18-20).
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <h3>Christ-centered worship</h3>
+                                            </div>
+                                            <div>
+                                                <p>We believe that the ultimate goal for every person is to give glory to God. As Christ is the perfect revelation of God, we desire to make Christ the focal point of our worhip in all that we do – singing, preaching, teaching, family life, work, community, and culture.<br />
+                                                Our desire is to see every person offer a daily, sacrificial response with their lives first to Christ and subsequently, towards the world (Ps. 96:7-8; Matt. 22:37-39; Rom. 12:1-2; Acts 2:42-47).
+                                                    </p></div>
+                                        </div>
+
+                                    </SmallBanner>
+                                    <SmallBanner className={theme} id="pastoral-team">
+                                        <h4>PASTORAL TEAM</h4>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <div style={{ backgroundColor: 'white', height: '400px', width: '300px' }} />
+                                            </div>
+                                            <div>
+                                                <h3>Pastor William Burgess</h3>
+                                                <h5>ENGLISH MINISTRIES</h5>
+                                                <p>Aliquet porttitor lacus luctus accumsan. Interdum consectetur libero id faucibus nisl. Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis. Feugiat in fermentum posuere urna nec tincidunt praesent semper.<br />
+At varius vel pharetra vel turpis nunc eget. Id venenatis a condimentum vitae sapien pellentesque habitant.</p>
+                                            </div>
+                                        </div>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <div style={{ backgroundColor: 'white', height: '400px', width: '300px' }} />
+                                            </div>
+                                            <div>
+                                                <h3>Rev. Edmond Fong</h3>
+                                                <h5>CHINESE MINISTRIES</h5>
+                                                <p>Aliquet porttitor lacus luctus accumsan. Interdum consectetur libero id faucibus nisl. Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis. Feugiat in fermentum posuere urna nec tincidunt praesent semper.<br />
+At varius vel pharetra vel turpis nunc eget. Id venenatis a condimentum vitae sapien pellentesque habitant.</p>
+                                            </div>
+                                        </div>
+                                        <div className={generalStyles.col_two}>
+                                            <div>
+                                                <div style={{ backgroundColor: 'white', height: '400px', width: '300px' }} />
+                                            </div>
+                                            <div>
+                                                <h3>Pastor Kwok-Yin Ho</h3>
+                                                <h5>CHINESE MINISTRIES</h5>
+                                                <p>Aliquet porttitor lacus luctus accumsan. Interdum consectetur libero id faucibus nisl. Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis. Feugiat in fermentum posuere urna nec tincidunt praesent semper.<br />
+At varius vel pharetra vel turpis nunc eget. Id venenatis a condimentum vitae sapien pellentesque habitant.</p>
+                                            </div>
+                                        </div>
+                                    </SmallBanner>"
                                 </>
                             )}
                         </LayoutV1>

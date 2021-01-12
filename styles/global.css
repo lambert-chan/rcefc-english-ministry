@@ -7,18 +7,178 @@ body {
     scroll-behavior: smooth;
 }
 
+.alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.75em 0;
+    transition: 0.25s linear;
+    -webkit-transition: 0.25s linear;
+}
+
+.alert > div {
+    margin: 0 1em;
+}
+
+.alert button {
+    color: white;
+}
+
+/** Colours **/
+
 .black {
     background: black !important;
+    color: white;
+}
+
+.black h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: white !important;
 }
 
 .white {
     background: white !important;
+    color: black;
+}
+
+.white h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: black !important;
 }
 
-.cards_three {
-    display: flex;
-    width: 100%;
-    align-items: center;
+/******************************************
+********THEME 0****************************
+******************************************/
+
+.theme_0 {
+    background: #F9FAEF;
+    color: #046A8A;
+}
+
+.theme_0 h1, 
+.theme_0 h2, 
+.theme_0 h3, 
+.theme_0 h4, 
+.theme_0 h5, 
+.theme_0 h6 {
+    color: #046A8A !important;
+}
+
+.theme_0 button {
+    border: 1px solid #046A8A;
+}
+
+.theme_0 button:first-child {
+    background: #046A8A;
+    color: white;
+}
+
+.theme_0 button:not(:first-child) {
+    background: transparent;
+    color: #046A8A;
+}
+
+/******************************************
+********THEME 1****************************
+******************************************/
+
+.theme_1 {
+    background: #FFDB70;
+    color: #245642;
+}
+
+.theme_1 h1, 
+.theme_1 h2, 
+.theme_1 h3, 
+.theme_1 h4, 
+.theme_1 h5, 
+.theme_1 h6 {
+    color: #245642 !important;
+}
+
+.theme_1 button {
+    border: 1px solid #245642;
+}
+
+.theme_1 button:first-child {
+    background: #245642;
+    color: white;
+}
+
+.theme_1 button:not(:first-child) {
+    background: transparent;
+    color: #245642;
+}
+
+/******************************************
+********THEME 2****************************
+******************************************/
+
+.theme_2 {
+    background: #3A20DC;
+    color: #fff;
+}
+
+.theme_2 h1, 
+.theme_2 h2, 
+.theme_2 h3, 
+.theme_2 h4, 
+.theme_2 h5, 
+.theme_2 h6 {
+    color: #fff !important;
+}
+
+.theme_2 button {
+    border: 1px solid #fff;
+}
+
+.theme_2 button:first-child {
+    background: #fff;
+    color: #3A20DC;
+}
+
+.theme_2 button:not(:first-child) {
+    background: transparent;
+    color: #fff;
+}
+
+/******************************************
+********THEME 3****************************
+******************************************/
+
+.theme_3 {
+    background: #EE5D6C;
+    color: #211044;
+}
+
+.theme_3 h1, 
+.theme_3 h2, 
+.theme_3 h3, 
+.theme_3 h4, 
+.theme_3 h5, 
+.theme_3 h6 {
+    color: #211044 !important;
+}
+
+.theme_3 button {
+    border: 1px solid #211044;
+}
+
+.theme_3 button:first-child {
+    background: #211044;
+    color: white;
+}
+
+.theme_3 button:not(:first-child) {
+    background: transparent;
+    color: #211044;
 }

@@ -4,6 +4,7 @@ import { Layout, Image } from 'antd'
 import Link from 'next/link';
 import RCEFCMenu from '../../components/menu'
 import headerStyles from '../../styles/header.module.css'
+import generalStyles from '../../styles/general.module.css'
 
 const { Header, Content, Footer } = Layout;
 
@@ -11,25 +12,21 @@ class LayoutV1 extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Layout style={{textAlign:'left'}}>
+                <Layout style={{ textAlign: 'left' }}>
                     <Header className={headerStyles.header + " " + this.props.className}>
-                        <div className={styles.logo}>
-                            <Link href="/">
-                                <div className={headerStyles.site_logo}>
-                                    <div>
-                                        <Image
-                                            src='https://english.rcefc.org/wp-content/uploads/2020/12/rcefc_logo.png'
-                                            width="24px"
-                                            height="24px"
-                                        />
+                        <div className={generalStyles.row}>
+                            <div className={styles.logo}>
+                                <Link href="/">
+                                    <div className={headerStyles.site_logo}>
+                                        <img src="https://english.rcefc.org/wp-content/uploads/2020/12/rcefc_logo.png" />
+                                        <div>
+                                            RCEFC
+                                        </div>
                                     </div>
-                                    <div>
-                                        RCEFC
-                                    </div>
-                                </div>
-                            </Link>
+                                </Link>
+                            </div>
+                            <RCEFCMenu className={this.props.className} />
                         </div>
-                        <RCEFCMenu className={this.props.className}/>
                     </Header>
                     <Content>
                         {this.props.children}
