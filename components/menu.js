@@ -24,6 +24,7 @@ const GetSubMenuItems = (data, parent) => {
     return data.map(item => {
         if (item?.parentId == id) {
             let slug = item?.path.split('/')
+            //Hash for join us slides
             let hash = slug > 2 ? item?.path : `/${slug[1]}#${slug[2]}`
             if (parent?.label == 'Join Us') {
                 hash = item?.path
@@ -37,7 +38,7 @@ const GetSubMenuItems = (data, parent) => {
 }
 
 const NavMenu = ({ className }) => {
-    // Query for nav menu from Apollo, this is where you pass in your GraphQL variables
+    // Query for nav menu from Apollo
     const { loading, error, data } = useQuery(NAV_MENU_DATA)
 
     if (loading) return '';
@@ -52,7 +53,7 @@ const NavMenu = ({ className }) => {
     return (
         <Menu className={headerStyles.main_menu + " " + className} mode="horizontal" triggerSubMenuAction='click'>
             {primaryMenuItems.map(menuItem =>
-                <SubMenu title={menuItem?.label} key={menuItem?.id}>
+                <SubMenu title={menuItem?.label} key={menuItem?.id} name={menuItem?.label}>
                     {GetSubMenuItems(data?.menuItems?.nodes, menuItem)}
                 </SubMenu>)}
         </Menu>

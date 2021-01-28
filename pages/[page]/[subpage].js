@@ -5,6 +5,7 @@ import { getAllMenuItems, getPage } from '../../lib/api'
 
 import LayoutV1 from '../../templates/layout_v1/layout'
 import { LargeBanner } from '../../components/banners'
+import { getRandomTheme } from '../index'
 
 export default function Page({ pageData }) {
     const router = useRouter()
@@ -13,6 +14,7 @@ export default function Page({ pageData }) {
         return <p>hmm... there's an error</p>
     }
 
+    let theme = getRandomTheme();
     return (
         <div>
             <Head>
@@ -25,8 +27,8 @@ export default function Page({ pageData }) {
                 {router.isFallback ? (
                     <h2>Loading...</h2>
                 ) : (
-                        <LayoutV1 className="black">
-                            <LargeBanner className="white">
+                        <LayoutV1 className="white">
+                            <LargeBanner className={theme}>
                                 <h1>{pageData ? pageData.title : ''}</h1>
                                 <div
                                     dangerouslySetInnerHTML={{ __html: pageData.content }}

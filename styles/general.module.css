@@ -15,6 +15,10 @@
     width: 50%;
 }
 
+.col_two div:first-child p{
+    font-size: 34px;
+}
+
 .col_two div h3 {
     font-size: 34px;
 }
@@ -26,6 +30,12 @@
 
 .col_two div p {
     margin: 0;
+    font-weight: 500;
+}
+
+.col_two img {
+    width: 350px;
+    height: 225px;
 }
 
 /**********************************************
