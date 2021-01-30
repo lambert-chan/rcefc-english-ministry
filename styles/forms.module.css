@@ -1,0 +1,23 @@
+.form_container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    max-width: 720px;
+    padding: 3em;
+    border: 1px solid grey;
+}
+
+.form h1 {
+    font-size: 32px;
+}
+
+.form form div div {
+    white-space: normal;
+    text-align: left;
+}
+
+.form label {
+    height: 100%
+}
