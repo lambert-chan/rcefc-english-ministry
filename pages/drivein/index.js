@@ -148,6 +148,10 @@ class DriveIn extends React.Component {
                                         Submit
                                     </Button>
                                 </Form>
+                                <form name='test-form' netlify method='POST' action="/drivein/success-form-submission">
+                                    <label>Name <input type="text" name="name"/></label>
+                                    <button type="submit">Submit</button>
+                                </form>
                             </div>
 
 
