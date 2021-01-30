@@ -37,7 +37,13 @@ class DriveIn extends React.Component {
                                     <p>Names and contact info will be kept for 30 days after the event for the sole purpose of contact tracing if the need arises.</p>
                                 </div>
 
-                                <Form name={`drive-in-signup-${date.format('MM-DD-YY')}`} data-netlify='true' wrapperCol={{span:8}} action="/drivein/success-form-submission">
+                                <Form
+                                    name={`drive-in-signup-${date.format('MM-DD-YY')}`}
+                                    data-netlify='true'
+                                    data-netlify-recaptcha="true"
+                                    method="POST"
+                                    wrapperCol={{ span: 8 }}
+                                    action="/drivein/success-form-submission">
                                     <Form.Item
                                         label="First Name"
                                         name="fname"
@@ -137,6 +143,7 @@ class DriveIn extends React.Component {
                                             </Radio>
                                         </Radio.Group>
                                     </Form.Item>
+                                    <div data-netlify-recaptcha="true"></div>
                                     <Button type="primary" htmlType="submit">
                                         Submit
                                     </Button>
