@@ -43,7 +43,8 @@ class DriveIn extends React.Component {
                                     data-netlify-recaptcha="true"
                                     method="POST"
                                     wrapperCol={{ span: 8 }}
-                                    action="/drivein/success-form-submission">
+                                    action="/drivein/success">
+                                    <input type="hidden" name="form-name" value={`drive-in-signup-${date.format('MM-DD-YY')}`} />
                                     <Form.Item
                                         label="First Name"
                                         name="fname"
@@ -148,8 +149,9 @@ class DriveIn extends React.Component {
                                         Submit
                                     </Button>
                                 </Form>
-                                <form name='test-form' netlify method='POST' action="/drivein/success-form-submission">
-                                    <label>Name <input type="text" name="name"/></label>
+                                <form name='test-form' netlify method='POST' action="/drivein/success">
+                                    <input type="hidden" name="form-name" value="test-form" />
+                                    <label>Name <input type="text" name="name" /></label>
                                     <button type="submit">Submit</button>
                                 </form>
                             </div>
