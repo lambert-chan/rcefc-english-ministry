@@ -4,12 +4,9 @@ import Link from 'next/link';
 import { Form, Input, Button, Radio } from 'antd'
 import moment from 'moment'
 
-import config from '../config'
 import styles from '../../styles/Home.module.css';
 import formStyles from '../../styles/forms.module.css'
 import LayoutV1 from '../../templates/layout_v1/layout';
-
-import { load, write } from '../../lib/google/spreadsheet'
 
 class DriveIn extends React.Component {
 
@@ -17,37 +14,6 @@ class DriveIn extends React.Component {
         let currentDay = moment().weekday()
         let deadlineMoment = moment().add(currentDay < 7 ? 0 : 1, 'week').day(7).hour(12).minute(0)
         return moment() < deadlineMoment
-    }
-
-    onLoad = (data, error) => {
-        if (data) {
-            const cars = data.cars;
-            console.log('data loaded from sheets')
-            console.log(cars)
-        } else {
-        }
-    };
-
-    initClient = () => {
-        gapi.client.init({
-            apiKey: config.apiKey,
-            clientId: config.clientID,
-            scope: config.scope,
-            discoveryDocs: config.discoveryDocs
-        })
-            .then(() => {
-                let x = gapi.auth2.getAuthInstance().isSignedIn.get()
-                console.log(x)
-            });
-    };
-
-    onFormSubmit = () => {
-        // load((resp, err) => { if (resp) { console.log(resp.cars) } else { console.error(err) } });
-        write(['1', '2', '3'], (resp, err) => { if (resp) { console.log(resp) } else { console.error(err) }  })
-    }
-
-    componentDidMount() {
-        gapi.load("client:auth2", this.initClient);
     }
 
     render() {
@@ -64,7 +30,7 @@ class DriveIn extends React.Component {
                     <button onClick={this.onFormSubmit}>Google API</button>
                     <LayoutV1>
                         <div className={formStyles.form_container}>
-                            <div className={formStyles.form}>
+                            {/* <div className={formStyles.form}>
                                 <h1 className={styles.title}>RCEFC Drive-In Worship - {date.format('MMMM D, YYYY')}</h1>
                                 <div className={formStyles.description}>
                                     <p>Only 1 Form is needed per car, so if a family of 4 is coming in 1 car, this only needs to be filled once not 4 times! Please don't take up the limited number of spots!</p>
@@ -72,7 +38,7 @@ class DriveIn extends React.Component {
                                     <p>Names and contact info will be kept for 30 days after the event for the sole purpose of contact tracing if the need arises.</p>
                                 </div>
 
-                                {/* <Form
+                                <Form
                                     name={`drive-in-signup-${date.format('MM-DD-YY')}`}
                                     wrapperCol={{ span: 8 }}>
                                     <Form.Item
@@ -177,8 +143,8 @@ class DriveIn extends React.Component {
                                     <Button type="primary" htmlType="submit">
                                         Submit
                                     </Button>
-                                </Form> */}
-                            </div>
+                                </Form>
+                            </div> */}
 
                             <form name="contact" method="POST" data-netlify="true">
                                 <label>Name: <input type="text" name="name"></input></label>
@@ -188,7 +154,6 @@ class DriveIn extends React.Component {
                     </LayoutV1>
 
                 </main>
-                <script src="https://apis.google.com/js/api.js"></script>
             </div>
         );
     }

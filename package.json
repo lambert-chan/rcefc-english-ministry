@@ -10,9 +10,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@apollo/client": "^3.3.6",
-    "@google-cloud/local-auth": "^1.0.0",
     "antd": "^4.9.4",
-    "googleapis": "^67.0.0",
     "graphql": "^15.4.0",
     "less": "^4.1.0",
     "moment": "^2.29.1",
