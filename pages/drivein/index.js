@@ -27,7 +27,6 @@ class DriveIn extends React.Component {
                 </Head>
 
                 <main>
-                    <button onClick={this.onFormSubmit}>Google API</button>
                     <LayoutV1>
                         <div className={formStyles.form_container}>
                             {/* <div className={formStyles.form}>
@@ -146,7 +145,8 @@ class DriveIn extends React.Component {
                                 </Form>
                             </div> */}
 
-                            <form name="contact" method="POST" data-netlify="true">
+                            <form name="contact" action="/drivein/success" method="POST" data-netlify="true">
+                                <input type="hidden" name="form-name" value="contact" />
                                 <label>Name: <input type="text" name="name"></input></label>
                                 <button type='submit'>Send</button>
                             </form>
