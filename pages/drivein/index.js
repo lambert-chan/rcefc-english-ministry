@@ -9,6 +9,57 @@ import formStyles from '../../styles/forms.module.css'
 import LayoutV1 from '../../templates/layout_v1/layout';
 
 class DriveIn extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fname: '',
+            lname: '',
+            phone: '',
+            email: '',
+            car_occupants: null,
+            not_outside_of_canada: '',
+            no_symptoms: '',
+            consider_health: '',
+            consider_underlying_health: '',
+        }
+    }
+
+    handleInputChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    }
+
+    handleSubmit = async (e) => {
+        let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
+        let formName = `drive-in-signup-${date.format('MM-DD-YY')}`
+        e.preventDefault();
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: this.encode({ 'form-name': formName, ...this.state })
+        }
+
+        fetch(
+            "/",
+            options
+        )
+            .then(function (response) {
+                window.location.assign('/drivein/success');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
 
     getDeadline = () => {
         let currentDay = moment().weekday()
@@ -29,7 +80,7 @@ class DriveIn extends React.Component {
                 <main>
                     <LayoutV1>
                         <div className={formStyles.form_container}>
-                            {/* <div className={formStyles.form}>
+                            <div className={formStyles.form}>
                                 <h1 className={styles.title}>RCEFC Drive-In Worship - {date.format('MMMM D, YYYY')}</h1>
                                 <div className={formStyles.description}>
                                     <p>Only 1 Form is needed per car, so if a family of 4 is coming in 1 car, this only needs to be filled once not 4 times! Please don't take up the limited number of spots!</p>
@@ -40,39 +91,45 @@ class DriveIn extends React.Component {
                                 <Form
                                     name={`drive-in-signup-${date.format('MM-DD-YY')}`}
                                     wrapperCol={{ span: 8 }}>
+                                    <input type="hidden" name="form-name" value={`drive-in-signup-${date.format('MM-DD-YY')}`} />
                                     <Form.Item
                                         label="First Name"
                                         name="fname"
+                                        htmlFor="drivein-form-fname"
                                         rules={[{ required: true, type: 'string', message: 'Please input your first name' }]}
                                     >
-                                        <Input />
+                                        <Input id="drivein-form-fname" name="fname" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
                                         label="Last Name"
                                         name="lname"
+                                        htmlFor="drivein-form-lname"
                                         rules={[{ required: true, type: 'string', message: 'Please input your last name' }]}
                                     >
-                                        <Input />
+                                        <Input id="drivein-form-lname" name="lname" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
                                         label="Phone Number"
-                                        name="number"
+                                        name="phone"
+                                        htmlFor="drivein-form-phone"
                                         rules={[{ required: true, type: 'string', message: 'Please input your phone number' }]}
                                     >
-                                        <Input />
+                                        <Input id="drivein-form-phone" name="phone" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
                                         label="Email Address"
                                         name="email"
+                                        htmlFor="drivein-form-email"
                                         rules={[{ required: true, type: 'email', message: 'Please input your email' }]}
                                     >
-                                        <Input />
+                                        <Input id="drivein-form-email" name="email" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
                                         label="Number of Car Occupants (including self)"
                                         name="car_occupants"
+                                        htmlFor="drivein-form-car-occupants"
                                         rules={[{ required: true, message: 'Please input the number of occupants in the car' }]}>
-                                        <Input type='number' />
+                                        <Input id="drivein-form-car-occupants" type='number' name="car_occupants" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <div>
                                         <h2>Please confirm the following statements for you and your family members.</h2>
@@ -86,9 +143,10 @@ class DriveIn extends React.Component {
                                     </div>
                                     <Form.Item
                                         label="We/I have NOT arrived from outside of Canada recently, or been in contact of a confirmed COVID-19 case"
-                                        name="outside_of_canada"
+                                        name="not_outside_of_canada"
+                                        htmlFor="drivein-form-not-outside-of-canada"
                                         rules={[{ required: true, message: 'Please check yes/no' }]}>
-                                        <Radio.Group>
+                                        <Radio.Group id="drivein-form-not-outside-of-canada" name="not_outside_of_canada" onChange={this.handleInputChange}>
                                             <Radio value='yes'>
                                                 Yes
                                             </Radio>
@@ -100,9 +158,10 @@ class DriveIn extends React.Component {
                                     <Form.Item
                                         label="We/I have NOT had symptoms of COVID-19 in the last 10 days 
                                         (fever, chills, new or worsening cough, shortness of breath, sore throat and new muscle aches or headache)"
-                                        name="symptoms"
+                                        name="no_symptoms"
+                                        htmlFor="drivein-form-no-symptoms"
                                         rules={[{ required: true, message: 'Please check yes/no' }]}>
-                                        <Radio.Group>
+                                        <Radio.Group id="drivein-form-no-symptoms" name="no_symptoms" onChange={this.handleInputChange}>
                                             <Radio value='yes'>
                                                 Yes
                                             </Radio>
@@ -114,8 +173,9 @@ class DriveIn extends React.Component {
                                     <Form.Item
                                         label="We/I will reconsider our health before leaving for the event to confirm we are still healthy. "
                                         name="consider_health"
+                                        htmlFor="drivein-form-consider-health"
                                         rules={[{ required: true, message: 'Please check yes/no' }]}>
-                                        <Radio.Group>
+                                        <Radio.Group id="drivein-form-consider-health" name="consider_health" onChange={this.handleInputChange}>
                                             <Radio value='yes'>
                                                 Yes
                                             </Radio>
@@ -128,9 +188,10 @@ class DriveIn extends React.Component {
                                         label="My family and I have considered underlying health and medical conditions,
                                          and factors which increase our risk, or risk to a close contact and have individually made a judgment call on whether or not it is safe for us to attend.
                                          We understand that if we are in close contact with another person who has COVID-19 we will be required by Health officials to self-isolate for 14 days."
-                                        name="underlying_health"
+                                        name="consider_underlying_health"
+                                        htmlFor="drivein-form-consider-underlying-health"
                                         rules={[{ required: true, message: 'Please check yes/no' }]}>
-                                        <Radio.Group>
+                                        <Radio.Group id="drivein-form-consider-underlying-health" name="consider_underlying_health" onChange={this.handleInputChange}>
                                             <Radio value='yes'>
                                                 Yes
                                             </Radio>
@@ -143,13 +204,13 @@ class DriveIn extends React.Component {
                                         Submit
                                     </Button>
                                 </Form>
-                            </div> */}
+                            </div>
 
-                            <form name="contact" action="/drivein/success" method="POST" data-netlify="true">
+                            {/* <form name="contact" action="/drivein/success" method="POST" data-netlify="true">
                                 <input type="hidden" name="form-name" value="contact" />
                                 <label>Name: <input type="text" name="name"></input></label>
                                 <button type='submit'>Send</button>
-                            </form>
+                            </form> */}
                         </div>
                     </LayoutV1>
 

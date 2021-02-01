@@ -14,7 +14,7 @@ const SuccessfulForm = () => (
         <main>
             <LayoutV1>
                 <div style={{display: 'flex', justifyContent: 'center', padding: '3em', height: '100vh'}}>
-                    <h1>Success! Thanks for filling the form!</h1>
+                    <h1>Success! Thanks for filling the form, we look forward to seeing you soon!</h1>
                 </div>
             </LayoutV1>
         </main>
