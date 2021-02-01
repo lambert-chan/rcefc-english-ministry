@@ -90,6 +90,8 @@ class DriveIn extends React.Component {
 
                                 <Form
                                     name={`drive-in-signup-${date.format('MM-DD-YY')}`}
+                                    method="POST"
+                                    data-netlify="true"
                                     wrapperCol={{ span: 8 }}>
                                     <input type="hidden" name="form-name" value={`drive-in-signup-${date.format('MM-DD-YY')}`} />
                                     <Form.Item
@@ -200,7 +202,7 @@ class DriveIn extends React.Component {
                                             </Radio>
                                         </Radio.Group>
                                     </Form.Item>
-                                    <Button type="primary" htmlType="submit">
+                                    <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>
                                         Submit
                                     </Button>
                                 </Form>
