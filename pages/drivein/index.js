@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { Form, Input, Button, Radio } from 'antd'
 import moment from 'moment'
 
+import config from '../config'
 import styles from '../../styles/Home.module.css';
 import formStyles from '../../styles/forms.module.css'
 import LayoutV1 from '../../templates/layout_v1/layout';
+
+import { load, write } from '../../lib/google/spreadsheet'
 
 class DriveIn extends React.Component {
 
@@ -14,6 +17,37 @@ class DriveIn extends React.Component {
         let currentDay = moment().weekday()
         let deadlineMoment = moment().add(currentDay < 7 ? 0 : 1, 'week').day(7).hour(12).minute(0)
         return moment() < deadlineMoment
+    }
+
+    onLoad = (data, error) => {
+        if (data) {
+            const cars = data.cars;
+            console.log('data loaded from sheets')
+            console.log(cars)
+        } else {
+        }
+    };
+
+    initClient = () => {
+        gapi.client.init({
+            apiKey: config.apiKey,
+            clientId: config.clientID,
+            scope: config.scope,
+            discoveryDocs: config.discoveryDocs
+        })
+            .then(() => {
+                let x = gapi.auth2.getAuthInstance().isSignedIn.get()
+                console.log(x)
+            });
+    };
+
+    onFormSubmit = () => {
+        // load((resp, err) => { if (resp) { console.log(resp.cars) } else { console.error(err) } });
+        write(['1', '2', '3'], (resp, err) => { if (resp) { console.log(resp) } else { console.error(err) }  })
+    }
+
+    componentDidMount() {
+        gapi.load("client:auth2", this.initClient);
     }
 
     render() {
@@ -27,6 +61,7 @@ class DriveIn extends React.Component {
                 </Head>
 
                 <main>
+                    <button onClick={this.onFormSubmit}>Google API</button>
                     <LayoutV1>
                         <div className={formStyles.form_container}>
                             <div className={formStyles.form}>
@@ -37,20 +72,15 @@ class DriveIn extends React.Component {
                                     <p>Names and contact info will be kept for 30 days after the event for the sole purpose of contact tracing if the need arises.</p>
                                 </div>
 
-                                <Form
+                                {/* <Form
                                     name={`drive-in-signup-${date.format('MM-DD-YY')}`}
-                                    data-netlify='true'
-                                    data-netlify-recaptcha="true"
-                                    method="POST"
-                                    wrapperCol={{ span: 8 }}
-                                    action="/drivein/success">
-                                    <input type="hidden" name="form-name" value={`drive-in-signup-${date.format('MM-DD-YY')}`} />
+                                    wrapperCol={{ span: 8 }}>
                                     <Form.Item
                                         label="First Name"
                                         name="fname"
                                         rules={[{ required: true, type: 'string', message: 'Please input your first name' }]}
                                     >
-                                        <Input compact />
+                                        <Input />
                                     </Form.Item>
                                     <Form.Item
                                         label="Last Name"
@@ -61,7 +91,7 @@ class DriveIn extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Phone Number"
-                                        name="pnumber"
+                                        name="number"
                                         rules={[{ required: true, type: 'string', message: 'Please input your phone number' }]}
                                     >
                                         <Input />
@@ -144,23 +174,21 @@ class DriveIn extends React.Component {
                                             </Radio>
                                         </Radio.Group>
                                     </Form.Item>
-                                    <div data-netlify-recaptcha="true"></div>
                                     <Button type="primary" htmlType="submit">
                                         Submit
                                     </Button>
-                                </Form>
-                                <form name='test-form' netlify method='POST' action="/drivein/success">
-                                    <input type="hidden" name="form-name" value="test-form" />
-                                    <label>Name <input type="text" name="name" /></label>
-                                    <button type="submit">Submit</button>
-                                </form>
+                                </Form> */}
                             </div>
 
-
+                            <form name="contact" method="POST" data-netlify="true">
+                                <label>Name: <input type="text" name="name"></input></label>
+                                <button type='submit'>Send</button>
+                            </form>
                         </div>
                     </LayoutV1>
 
                 </main>
+                <script src="https://apis.google.com/js/api.js"></script>
             </div>
         );
     }
