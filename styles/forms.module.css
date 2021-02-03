@@ -4,9 +4,10 @@
 }
 
 .form {
-    max-width: 720px;
+    max-width: 960px;
     padding: 3em;
-    border: 1px solid grey;
+    margin: 2em 0;
+    border: 1px solid lightgray;
 }
 
 .form h1 {
@@ -20,4 +21,10 @@
 
 .form label {
     height: 100%
+}
+
+@media (max-width: 600px) {
+    .form {
+        border: none;
+    }
 }

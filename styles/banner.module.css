@@ -66,8 +66,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    padding: 3em;
+    padding: 2em;
+    min-height: 100vh;
 }
 
 .page_banner h1 {
@@ -81,7 +81,7 @@
     font-weight: 600;
 }
 
-.page_banner p {
+.page_banner p, .page_banner ol {
     font-size: 18px;
     font-weight: 600;
 }

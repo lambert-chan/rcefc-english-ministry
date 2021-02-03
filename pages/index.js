@@ -24,7 +24,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Alert message="We’re meeting online as we follow BC Health Authority restrictions to help control the spread of Covid-19."/>
+        <Alert message="We’re meeting online as we follow BC Health Authority restrictions to help control the spread of Covid-19." />
         <LayoutV1>
           <Carousel autoplay speed={2000} autoplaySpeed={5000}>
 
@@ -51,43 +51,55 @@ export default function Home() {
 
           <SmallBanner className="white">
             <h1>Something for everyone</h1>
-            <p>Maecenas accumsan lacus vel facilisis. Vitae suscipit
-            tellus mauris a diam maecenas sed. Massa vitae tortor condimentum lacinia quis vel.</p>
+            <p>Community helps us grow, it supports us in times of need and we all need some connection 
+              in order for us accomplish more as fellow children of God.</p>
             <div className={homeStyles.cards_container}>
               <div className={homeStyles.cards_two}>
                 <Card>
                   <h3 >Sunday Service</h3>
                   <p>EVERY WEEK AT 10:45AM</p>
-                  <Button>Tune in Live</Button>
+                  <Link href="/join-us#worship-sessions">
+                    <Button>Tune in Live</Button>
+                  </Link>
                 </Card>
                 <Card>
                   <h3>Kids</h3>
                   <p>AWANA AND SUNDAY SCHOOL</p>
-                  <Button>Learn More</Button>
+                  <Link href="/join-us#children">
+                    <Button>Learn More</Button>
+                  </Link>
                 </Card>
               </div>
               <div className={homeStyles.cards_two}>
                 <Card>
                   <h3>Young Adults</h3>
                   <p>WEDNESDAY NIGHTS</p>
-                  <Button ghost>Learn More</Button>
+                  <Link href="/join-us#yads">
+                    <Button>Learn More</Button>
+                  </Link>
                 </Card>
                 <Card>
                   <h3>Adults</h3>
                   <p>SUNDAY AFTERNOON</p>
-                  <Button>Learn More</Button>
+                  <Link href="/join-us#adults">
+                    <Button>Learn More</Button>
+                  </Link>
                 </Card>
               </div>
               <div className={homeStyles.cards_two}>
                 <Card>
                   <h3>Golden Years</h3>
                   <p>SUNDAY AFTERNOON</p>
-                  <Button>Learn More</Button>
+                  <Link href="/join-us#golden-years">
+                    <Button>Learn More</Button>
+                  </Link>
                 </Card>
                 <Card>
                   <h3>Small Groups</h3>
                   <p>FIND YOUR COMMUNITY</p>
-                  <Button>Learn More</Button>
+                  <Link href="/join-us#small-groups">
+                    <Button>Learn More</Button>
+                  </Link>
                 </Card>
               </div>
             </div>
@@ -96,7 +108,7 @@ export default function Home() {
 
           <SmallBanner className={theme}>
             <h1>We're here for you</h1>
-            <p>Turpis egestas maecenas pharetra convallis posuere morbi leo. Semper auctor neque vitae tempus. Praesent tristique magna sit amet purus gravida.</p>
+            <p>Our prayer team is ready to work with you for that breakthrough that you need in your life. All prayer requests will remain confidential.</p>
             <Button>Request Prayer</Button>
           </SmallBanner>
 

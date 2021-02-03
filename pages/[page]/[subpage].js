@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { getAllMenuItems, getPage } from '../../lib/api'
 
 import LayoutV1 from '../../templates/layout_v1/layout'
-import { LargeBanner } from '../../components/banners'
+import { PageBanner } from '../../components/banners'
 import { getRandomTheme } from '../index'
 
 export default function Page({ pageData }) {
@@ -28,12 +28,12 @@ export default function Page({ pageData }) {
                     <h2>Loading...</h2>
                 ) : (
                         <LayoutV1 className="white">
-                            <LargeBanner className={theme}>
+                            <PageBanner className={theme}>
                                 <h1>{pageData ? pageData.title : ''}</h1>
                                 <div
                                     dangerouslySetInnerHTML={{ __html: pageData.content }}
                                 />
-                            </LargeBanner>
+                            </PageBanner>
                         </LayoutV1>
                     )}
             </main>

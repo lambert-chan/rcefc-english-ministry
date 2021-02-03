@@ -182,3 +182,8 @@ h6 {
     background: transparent;
     color: #211044;
 }
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
