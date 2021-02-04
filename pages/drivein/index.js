@@ -91,7 +91,6 @@ class DriveIn extends React.Component {
                                     name='drive-in-signup'
                                     method="POST"
                                     data-netlify="true"
-                                    data-netlify-recaptcha="true"
                                     wrapperCol={{ span: 8 }}>
                                     <input type="hidden" name="form-name" value='drive-in-signup' />
                                     <Form.Item
@@ -214,7 +213,6 @@ class DriveIn extends React.Component {
                                             </Radio>
                                         </Radio.Group>
                                     </Form.Item>
-                                    <div data-netlify-recaptcha="true"></div>
                                     <Button type="primary" htmlType="submit" onClick={this.handleSubmit} style={{ margin: '0.5em 0' }}>
                                         Submit
                                     </Button>
