@@ -23,8 +23,17 @@
     height: 100%
 }
 
+.form textarea {
+    max-width: 30em;
+    width: 100%;
+    height: 10em !important;
+}
+
 @media (max-width: 600px) {
     .form {
         border: none;
+    }
+    .form textarea {
+        width: 100%;
     }
 }

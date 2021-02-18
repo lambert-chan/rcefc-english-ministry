@@ -33,12 +33,26 @@ export class PageBanner extends React.Component {
     render() {
         return (
             <div className={bannerStyles.page_banner + ` ${this.props.className}`} id={this.props.id}>
-            <div className={bannerStyles.banner_content_container}>
-                <div className={bannerStyles.banner_content}>
-                    {this.props.children}
+                <div className={bannerStyles.banner_content_container}>
+                    <div className={bannerStyles.banner_content}>
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
-        </div>
+        )
+    }
+}
+
+export class TitleBanner extends React.Component {
+    render() {
+        return (
+            <div className={bannerStyles.title_banner + ` ${this.props.className}`} id={this.props.id}>
+                <div className={bannerStyles.banner_content_container}>
+                    <div className={bannerStyles.banner_content}>
+                        {this.props.children}
+                    </div>
+                </div>
+            </div>
         )
     }
 }

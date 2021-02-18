@@ -1,17 +1,17 @@
 import React from 'react'
 import Head from 'next/head';
-import Link from 'next/link';
 import { Form, Input, Button, Radio, DatePicker } from 'antd'
 import moment from 'moment'
 
-import styles from '../../styles/Home.module.css';
-import formStyles from '../../styles/forms.module.css'
-import LayoutV1 from '../../templates/layout_v1/layout';
+import styles from '../../../styles/Home.module.css';
+import formStyles from '../../../styles/forms.module.css'
+import LayoutV1 from '../../../templates/layout_v1/layout';
 
 class DriveIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            date : '',
             fname: '',
             lname: '',
             phone: '',
@@ -41,11 +41,12 @@ class DriveIn extends React.Component {
 
     handleSubmit = async (e) => {
         let formName = 'drive-in-signup'
+        let date = document.getElementById('drivein-form-date').value
         e.preventDefault();
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: this.encode({ 'form-name': formName, ...this.state })
+            body: this.encode({ 'form-name': formName, ...this.state, 'date' : date })
         }
 
         fetch(
@@ -53,7 +54,7 @@ class DriveIn extends React.Component {
             options
         )
             .then(function (response) {
-                window.location.assign('/drivein/success');
+                window.location.assign('/forms/drivein/success');
             })
             .catch(function (error) {
                 console.log(error);
@@ -99,7 +100,7 @@ class DriveIn extends React.Component {
                                         htmlFor='drivein-form-date'
                                         hidden
                                     >
-                                        <Input id="drivein-form-date" name="date" defaultValue={date.format('YYYY-MM-DD')} type="date" />
+                                        <Input id="drivein-form-date" name="date" defaultValue={date.format('YYYY-MM-DD')} type="date" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
                                         label="First Name"

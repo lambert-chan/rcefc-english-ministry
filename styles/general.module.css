@@ -11,24 +11,26 @@
     padding: 4em 0;
 }
 
-.col_two div {
+.col_two > :first-child {
     width: 50%;
+    padding-right: 5em;
 }
 
-.col_two div:first-child p{
+.col_two > :last-child {
+    width: 50%
+}
+
+.col_two h4 {
     font-size: 34px;
+    font-weight: 600;
 }
 
-.col_two div h3 {
-    font-size: 34px;
-}
-
-.col_two div h5 {
+.col_two h5 {
     font-size: 18px;
     margin-bottom: 1em;
 }
 
-.col_two div p {
+.col_two p {
     margin: 0;
     font-weight: 500;
 }

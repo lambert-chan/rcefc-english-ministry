@@ -2,21 +2,46 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ReactHTMLParser from 'react-html-parser'
 import { getAllMenuItems, getPage } from '../../lib/api'
+import parse, { domToReact } from 'html-react-parser';
 
 import LayoutV1 from '../../templates/layout_v1/layout'
-import { PageBanner, LargeBanner, SmallBanner } from '../../components/banners'
+import { TitleBanner, PageBanner, LargeBanner, SmallBanner } from '../../components/banners'
 import { getRandomTheme } from '../index'
+import { remove_linebreaks } from '../../lib/utils'
 import generalStyles from '../../styles/general.module.css'
 
 export default function Page({ pageData }) {
     const router = useRouter()
-    var banner_index = -1
+    var banner_index = 0
+    let theme = getRandomTheme();
 
     if (!router.isFallback && !pageData?.slug) {
         return <p>hmm... there's an error</p>
     }
 
-    let theme = getRandomTheme();
+    const wp_classes = ['wp-block-group', 'wp-block-column', 'wp-block-group__inner-container']
+    const options = {
+        replace: ({ attribs, children }) => {
+            if (!attribs) {
+                return
+            }
+
+            if (wp_classes.includes(attribs.class)) {
+                return (
+                    <div>
+                        {domToReact(children, options)}
+                    </div>
+                );
+            } else if (attribs.class === 'wp-block-columns') {
+                return (
+                    <div className={generalStyles.col_two}>
+                        {domToReact(children, options)}
+                    </div>
+                )
+            }
+        }
+    }
+
     return (
         <div>
             <Head>
@@ -30,12 +55,12 @@ export default function Page({ pageData }) {
                     <h2>Loading...</h2>
                 ) : (
                         <LayoutV1>
-                            <PageBanner className={theme}>
-                                <h1>{pageData ? pageData.title : ''}</h1>
+                            <TitleBanner className={theme} id={pageData.slug} key={pageData.slug}>
+                                <h1>{pageData.title}</h1>
                                 <div
                                     dangerouslySetInnerHTML={{ __html: pageData.content }}
                                 />
-                            </PageBanner>
+                            </TitleBanner>
 
                             {/**Hard coded - Join Us Banners */}
                             {pageData.slug == 'join-us' && (
@@ -92,32 +117,12 @@ export default function Page({ pageData }) {
                             {pageData.slug == 'about' && (
                                 pageData.children.edges.map(edge => {
                                     let subpage = edge.node
-                                    banner_index++
-                                    let content = ReactHTMLParser(subpage.content)
-                                    let p_elements = content.filter(element => element.type == 'p')
-                                    let title = p_elements.shift()
-                                    let groups = content.filter(element => element.type == 'div')
+                                    let parsed = parse(remove_linebreaks(subpage.content), options)
                                     return (
-                                        <SmallBanner className={banner_index % 2 == 0 ? 'white' : theme} id={subpage.slug} key={subpage.slug}>
-                                            <h4>{subpage.title.toUpperCase()}</h4>
-                                            <h2>{title.props.children.map(child => child)}</h2>
-                                            {groups.map(group => {
-                                                let data = group.props.children[0]
-                                                if (data) {
-                                                    let data_c = data.props.children
-                                                    return (
-                                                        <div className={generalStyles.col_two}>
-                                                            <div>
-                                                                {data_c[0]}
-                                                            </div>
-                                                            <div>
-                                                                {data_c.length < 2 ? data_c[1] : (data_c.filter((d, i) => i > 0))}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                            })}
-                                        </SmallBanner>
+                                        <PageBanner className={++banner_index % 2 == 0 ? theme : 'white'} id={subpage.slug} key={subpage.slug}>
+                                            <h5>{subpage.title.toUpperCase()}</h5>
+                                            {parsed[0] ? parsed.map(group => group)  : parsed}
+                                        </PageBanner>
                                     )
                                 })
                             )}

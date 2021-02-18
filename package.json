@@ -12,6 +12,7 @@
     "@apollo/client": "^3.3.6",
     "antd": "^4.9.4",
     "graphql": "^15.4.0",
+    "html-react-parser": "^1.2.4",
     "less": "^4.1.0",
     "moment": "^2.29.1",
     "next": "10.0.3",

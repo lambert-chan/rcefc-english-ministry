@@ -29,6 +29,22 @@
     margin: 8% 0 5% 0;
 }
 
+.banner_content_container h1 {
+    font-size: 72px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.banner_content_container h2 {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.banner_content_container p, .banner_content_container ol {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .banner_content {
     max-width: 960px;
 }
@@ -67,23 +83,33 @@
     display: flex;
     justify-content: center;
     padding: 2em;
-    min-height: 100vh;
 }
 
-.page_banner h1 {
-    font-size: 72px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.page_banner h2 {
-    font-size: 48px;
-    font-weight: 600;
-}
-
-.page_banner p, .page_banner ol {
+.page_banner h5 {
     font-size: 18px;
-    font-weight: 600;
+    margin-bottom: 2em;
+}
+
+.page_banner h4 {
+    font-size: 34px;
+    margin-bottom: 0;
+}
+
+.page_banner h4+p {
+    color: #C0C0C0;
+    margin-bottom: 2em
+}
+
+/** Title Banner **/
+.title_banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.title_banner h1 {
+    margin-bottom: 0.5em;
 }
 
 /**********************************************
