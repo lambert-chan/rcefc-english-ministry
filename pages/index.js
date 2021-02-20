@@ -31,9 +31,11 @@ export default function Home() {
             {/**BANNER ONE */}
             <LargeBanner className={theme}>
               <h1>We exist to glorify God by making his gospel known to the world</h1>
-              <p>Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Felis bibendum ut tristique et. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non.</p>
+              <p>
+                Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit - Matthew 28:19
+              </p>
               <div>
-                <Link href="/worship-sessions">
+                <Link href="/join-us/worship">
                   <Button>
                     Join an online service
                   </Button>
@@ -51,21 +53,21 @@ export default function Home() {
 
           <SmallBanner className="white">
             <h1>Something for everyone</h1>
-            <p>Community helps us grow, it supports us in times of need and we all need some connection 
+            <p>Community helps us grow, it supports us in times of need and we all need some connection
               in order for us accomplish more as fellow children of God.</p>
             <div className={homeStyles.cards_container}>
               <div className={homeStyles.cards_two}>
                 <Card>
                   <h3 >Sunday Service</h3>
                   <p>EVERY WEEK AT 10:45AM</p>
-                  <Link href="/join-us#worship-sessions">
+                  <Link href="/join-us/worship">
                     <Button>Tune in Live</Button>
                   </Link>
                 </Card>
                 <Card>
-                  <h3>Kids</h3>
+                  <h3>Childrens</h3>
                   <p>AWANA AND SUNDAY SCHOOL</p>
-                  <Link href="/join-us#children">
+                  <Link href="/join-us/children">
                     <Button>Learn More</Button>
                   </Link>
                 </Card>
@@ -74,30 +76,30 @@ export default function Home() {
                 <Card>
                   <h3>Young Adults</h3>
                   <p>WEDNESDAY NIGHTS</p>
-                  <Link href="/join-us#yads">
+                  <Link href="/join-us/yads">
                     <Button>Learn More</Button>
                   </Link>
                 </Card>
                 <Card>
                   <h3>Adults</h3>
                   <p>SUNDAY AFTERNOON</p>
-                  <Link href="/join-us#adults">
+                  <Link href="/join-us/adults">
                     <Button>Learn More</Button>
                   </Link>
                 </Card>
               </div>
               <div className={homeStyles.cards_two}>
                 <Card>
-                  <h3>Golden Years</h3>
-                  <p>SUNDAY AFTERNOON</p>
-                  <Link href="/join-us#golden-years">
-                    <Button>Learn More</Button>
+                  <h3>Sermons</h3>
+                  <p>New recordings weekly</p>
+                  <Link href="/join-us/sermon-recording-list">
+                    <Button>Listen Here</Button>
                   </Link>
                 </Card>
                 <Card>
                   <h3>Small Groups</h3>
                   <p>FIND YOUR COMMUNITY</p>
-                  <Link href="/join-us#small-groups">
+                  <Link href="/join-us/small-groups">
                     <Button>Learn More</Button>
                   </Link>
                 </Card>
@@ -109,7 +111,9 @@ export default function Home() {
           <SmallBanner className={theme}>
             <h1>We're here for you</h1>
             <p>Our prayer team is ready to work with you for that breakthrough that you need in your life. All prayer requests will remain confidential.</p>
-            <Button>Request Prayer</Button>
+            <Link href="/forms/prayer">
+              <Button>Request Prayer</Button>
+            </Link>
           </SmallBanner>
 
         </LayoutV1>

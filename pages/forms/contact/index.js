@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head';
-import { Form, Input, Button, Radio, DatePicker } from 'antd'
+import { Form, Input, Button, Radio } from 'antd'
 
 import styles from '../../../styles/Home.module.css';
 import formStyles from '../../../styles/forms.module.css'
@@ -33,7 +33,7 @@ class DriveIn extends React.Component {
     }
 
     handleSubmit = async (e) => {
-        let formName = 'prayer-requests'
+        let formName = 'contact-requests'
         e.preventDefault();
         const options = {
             method: 'POST',
@@ -46,7 +46,7 @@ class DriveIn extends React.Component {
             options
         )
             .then(function (response) {
-                window.location.assign('/forms/prayer/success');
+                window.location.assign('/forms/contact/success');
             })
             .catch(function (error) {
                 console.log(error);
@@ -57,7 +57,7 @@ class DriveIn extends React.Component {
         return (
             <div>
                 <Head>
-                    <title>Prayer Request</title>
+                    <title>Get in Touch</title>
                     <link rel='icon' href='/favicon.ico' />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
                 </Head>
@@ -66,60 +66,42 @@ class DriveIn extends React.Component {
                     <LayoutV1>
                         <div className={formStyles.form_container}>
                             <div className={formStyles.form}>
-                                <h1 className={styles.title}>Prayer Request</h1>
+                                <h1 className={styles.title}>Get In Touch</h1>
                                 <div className={formStyles.description}>
-                                    <p>Please submit your request for prayer below</p>
+                                    <p>Please submit your contact information below.</p>
                                 </div>
 
                                 <Form
-                                    name='prayer-requests'
+                                    name='contact-form'
                                     method="POST"
                                     data-netlify="true">
-                                    <input type="hidden" name="form-name" value='prayer-requests' />
+                                    <input type="hidden" name="form-name" value='contact-requests' />
                                     <Form.Item
                                         label="Name"
                                         name="name"
-                                        htmlFor="prayer-request-form-name"
+                                        htmlFor="contact-form-name"
                                         rules={[{ required: true, type: 'string', message: 'Please input your name' }]}
                                     >
-                                        <Input id="prayer-request-form-name" name="name" onChange={this.handleInputChange} />
+                                        <Input id="contact-form-name" name="name" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
                                         label="Email Address"
                                         name="email"
-                                        htmlFor="prayer-request-form-email"
+                                        htmlFor="contact-form-email"
                                         rules={[{ required: true, type: 'email', message: 'Please input your email' }]}
                                     >
-                                        <Input id="prayer-request-form-email" type="email" name="email" onChange={this.handleInputChange} />
+                                        <Input id="contact-form-email" name="email" type="email" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
-                                        label="What is the Prayer Need?"
-                                        colon={false}
-                                        name="prayer-request"
-                                        htmlFor='prayer-request-form-request'
-                                        className="flex-column"
-                                        rules={[{ required: true, type: 'string', message: 'Please input your request' }]}
+                                        label="Phone Number"
+                                        name="phone"
+                                        htmlFor="contact-form-phone"
+                                        rules={[{ required: true, type: 'phone', message: 'Please input your phone number' }]}
                                     >
-                                        <Input.TextArea id='prayer-request-form-request' name='request' onChange={this.handleInputChange}/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Would you like to keep this private?"
-                                        colon={false}
-                                        name="is_private"
-                                        htmlFor="prayer-request-form-private"
-                                        className="flex-column"
-                                        rules={[{ required: false, message: 'Please check yes/no' }]}>
-                                        <Radio.Group id="prayer-request-form-private" name="is_private" onChange={this.handleInputChange}>
-                                            <Radio value='yes'>
-                                                Yes
-                                            </Radio>
-                                            <Radio value='no'>
-                                                No
-                                            </Radio>
-                                        </Radio.Group>
+                                        <Input id="contact-form-phone" name="phone" type="tel" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Button type="primary" htmlType="submit" onClick={this.handleSubmit} style={{ margin: '0.5em 0' }}>
-                                        Submit
+                                        Submit Request
                                     </Button>
                                 </Form>
                             </div>

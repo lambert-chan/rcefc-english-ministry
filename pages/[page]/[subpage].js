@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Link from 'next/link'
 import parse, { domToReact } from 'html-react-parser';
 
 import { getAllMenuItems, getPage } from '../../lib/api'
@@ -85,9 +86,11 @@ export default function Page({ pageData }) {
                             <PageBanner className={++banner_index % 2 == 0 ? theme : ''} key={banner_index}>
                                 <h2>Have Questions?</h2>
                                 <p>We would love to be able to connect you to the church!</p>
-                                <Button>
-                                    Get in touch
+                                <Link href="/forms/contact">
+                                    <Button>
+                                        Get in touch
                                 </Button>
+                                </Link>
                             </PageBanner>
                         </LayoutV1>
                     )}
