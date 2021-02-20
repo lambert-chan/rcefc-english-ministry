@@ -18,7 +18,13 @@ export default function Page({ pageData }) {
     let theme = getRandomTheme();
 
     if (!router.isFallback && !pageData?.slug) {
-        return <p>hmm... there's an error</p>
+        return (
+            <LayoutV1>
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '3em', height: '100vh' }}>
+                    <h1>This page does not exist.</h1>
+                </div>
+            </LayoutV1>
+        )
     }
 
     const wp_classes = ['wp-block-group', 'wp-block-column', 'wp-block-group__inner-container']
@@ -114,7 +120,7 @@ export async function getStaticProps({ params }) {
     console.log(`Building page: ${slug}`)
     return {
         props: {
-            pageData: data.page
+            pageData: data.page || null
         }
     }
 }

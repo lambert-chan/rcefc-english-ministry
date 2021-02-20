@@ -46,7 +46,7 @@ export async function getStaticProps() {
     const data = await getAllPosts();
     return {
         props: {
-            allPosts: data
+            allPosts: data || null
         }
     };
 }

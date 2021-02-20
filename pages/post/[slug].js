@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import { getAllPostsWithSlug, getMenu, getPost, getPostWithSlug } from '../../lib/api'
+import { getAllPostsWithSlug, getPost } from '../../lib/api'
 
 import LayoutV1 from '../../templates/layout_v1/layout'
 
@@ -9,12 +9,13 @@ export default function Post({ postData }) {
     const router = useRouter()
 
     if (!router.isFallback && !postData?.slug) {
-        return <p>hmm... there's an error</p>
-    }
-
-    const formatDate = date => {
-        const newDate = new Date(date)
-        return `${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}`
+        return (
+            <LayoutV1>
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '3em', height: '100vh' }}>
+                    <h1>This page does not exist.</h1>
+                </div>
+            </LayoutV1>
+        )
     }
 
     return (
@@ -25,7 +26,7 @@ export default function Post({ postData }) {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
             </Head>
 
-            <main style={{textAlign: 'center'}}>
+            <main style={{ textAlign: 'center' }}>
                 {router.isFallback ? (
                     <h2>Loading...</h2>
                 ) : (
@@ -45,17 +46,17 @@ export async function getStaticPaths() {
     const postPath = await getAllPostsWithSlug();
 
     return {
-        paths: postPath.edges.map(({ node }) => `/post/${node.slug}`) || [],
+        paths: postPath.edges.map(({ node }) => `/post/${node?.slug}`) || [],
         fallback: true
     }
 }
 
 export async function getStaticProps({ params }) {
-    const data = await getPost(params.slug)
-    console.log(`Building post: ${params.slug}`)
+    const data = await getPost(params?.slug)
+    console.log(`Building post: ${params?.slug}`)
     return {
         props: {
-            postData: data.post
+            postData: data.post || null
         }
     }
 }

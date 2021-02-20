@@ -21,6 +21,7 @@ export default function Home() {
         <title>RCEFC English Ministries</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
+        <meta name="description" content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world."/>
       </Head>
 
       <main>
@@ -30,7 +31,7 @@ export default function Home() {
 
             {/**BANNER ONE */}
             <LargeBanner className={theme}>
-              <h1>We exist to glorify God by making his gospel known to the world</h1>
+              <h1>We exist to glorify God by making His gospel known to the world</h1>
               <p>
                 Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit - Matthew 28:19
               </p>
