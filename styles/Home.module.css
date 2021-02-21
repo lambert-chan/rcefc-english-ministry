@@ -16,15 +16,6 @@
   align-items: center;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-}
-
 .cards_container {
   max-width: 960px;
 }
@@ -44,11 +35,4 @@
 
 .home_button {
   float: left;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }

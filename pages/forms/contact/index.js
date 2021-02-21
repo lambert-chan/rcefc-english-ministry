@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head';
-import { Form, Input, Button, Radio } from 'antd'
+import { Form, Input, Button } from 'antd'
 
 import styles from '../../../styles/Home.module.css';
 import formStyles from '../../../styles/forms.module.css'
@@ -101,7 +101,7 @@ class DriveIn extends React.Component {
                                         <Input id="contact-form-phone" name="phone" type="tel" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Button type="primary" htmlType="submit" onClick={this.handleSubmit} style={{ margin: '0.5em 0' }}>
-                                        Submit Request
+                                        Submit
                                     </Button>
                                 </Form>
                             </div>

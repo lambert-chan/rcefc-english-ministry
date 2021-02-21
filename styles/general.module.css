@@ -47,8 +47,20 @@
 @media screen and (max-width: 500px) {
     .col_two {
         flex-direction: column;
+        padding: 1em 0;
     }
     .col_two div {
+        margin: 1em 0;
+    }
+    .col_two img {
+        width: 80vw;
+        height: 80vw;
+    }
+    .col_two > :first-child {
         width: 100%;
+        padding: 0;
+    }
+    .col_two > :last-child {
+        width: 100%
     }
 }

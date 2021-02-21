@@ -83,7 +83,7 @@ export default function Page({ pageData }) {
                 {router.isFallback ? (
                     <h2>Loading...</h2>
                 ) : (
-                        <LayoutV1 className="white">
+                        <LayoutV1>
                             <TitleBanner className={theme} id={pageData.slug}>
                                 <h1>{pageData.title}</h1>
                                 {description && description}

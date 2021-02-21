@@ -187,3 +187,16 @@ h6 {
     display: flex;
     flex-direction: column;
 }
+
+/******************************************
+********Media Queries**********************
+******************************************/
+
+@media screen and (max-width: 500px) {
+    .theme_0 button:not(:first-child),
+    .theme_1 button:not(:first-child),
+    .theme_2 button:not(:first-child),
+    .theme_3 button:not(:first-child) {
+        margin-top: 1em;
+    }
+}

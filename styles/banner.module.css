@@ -53,6 +53,13 @@
     margin-right: 2em;
 }
 
+/** Specific for Google Map iframe in Contacts **/
+.banner_content iframe {
+    float: right;
+    width: 500px;
+    height: 400px;
+}
+
 
 /** Small Banner **/
 .small_banner {
@@ -105,7 +112,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 10%;
+    padding: 10% 2em 0 2em;
 }
 
 .title_banner h1 {
@@ -149,6 +156,16 @@
 ****************MEDIA QUERIES******************
 ***********************************************/
 
+/** Tablets **/
+@media screen and (max-width: 768px) {
+    .card {
+        height: 350px;
+        width: 300px;
+        padding: 0.75em;
+    }
+}
+
+/** Phones **/
 @media screen and (max-width: 500px) {
     .large_banner h1 {
         font-size: 36px;
@@ -161,6 +178,16 @@
     }
     .page_banner h1 {
         font-size: 48px;
+    }
+    .page_banner h4 {
+        font-size: 20px;
+    }
+    .title_banner h1 {
+        font-size: 48px;
+    }
+    .banner_content iframe {
+        width: 90vw;
+        height: 90vw;
     }
     .card {
         height: 240px;

@@ -131,7 +131,7 @@ export default function Page({ pageData }) {
                             )}
 
                             {/* About pages layout */}
-                            {pageData.slug == 'about' && (
+                            {pageData.slug !== 'join-us' && (
                                 pageData.children.edges.map(edge => {
                                     let subpage = edge.node
                                     let parsed = parse(remove_linebreaks(subpage.content), options)
