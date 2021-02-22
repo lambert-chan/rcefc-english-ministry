@@ -9,6 +9,7 @@
 .large_banner h1 {
     font-size: 72px;
     font-weight: 600;
+    line-height: 115%;
 }
 
 .large_banner h2 {
@@ -97,13 +98,32 @@
     margin-bottom: 2em;
 }
 
+.page_banner .banner_content > h5+p {
+    font-size: 34px;
+    line-height: 115%;
+    font-weight: 600;
+}
+
+.page_banner .banner_content > h5+div {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.page_banner .banner_content > div:first-child > h5+p {
+    font-size: 34px;
+    line-height: 115%;
+    font-weight: 600;
+}
+
 .page_banner h4 {
     font-size: 34px;
     margin-bottom: 0;
+    line-height: 100%;
+    font-weight: 600;
 }
 
 .page_banner h4+p {
-    color: #C0C0C0;
+    color: gray;
     margin-bottom: 2em
 }
 
@@ -136,6 +156,7 @@
 
 .card_content h3{
     font-size: 34px;
+    font-weight: 600;
 }
 
 .card_content p {
@@ -156,12 +177,20 @@
 ****************MEDIA QUERIES******************
 ***********************************************/
 
-/** Tablets **/
+/** Tablet - Portrait **/
 @media screen and (max-width: 768px) {
     .card {
         height: 350px;
         width: 300px;
         padding: 0.75em;
+    }
+
+    .page_banner h4 {
+        font-size: 24px;
+    }
+
+    .page_banner h5 {
+        margin-bottom: 1em;
     }
 }
 
@@ -181,6 +210,12 @@
     }
     .page_banner h4 {
         font-size: 20px;
+    }
+    .page_banner .banner_content > h5+p {
+        font-size: 24px;
+    }
+    .page_banner .banner_content > div:first-child > h5+p {
+        font-size: 24px;
     }
     .title_banner h1 {
         font-size: 48px;

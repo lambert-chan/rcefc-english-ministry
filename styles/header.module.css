@@ -21,12 +21,13 @@
 }
 
 .site_logo img {
-    height: 24px;
-    width: 24px;
+    height: 26.75px;
+    width: 26.75px;
 }
 
 .site_logo > div {
-    margin-left: 0.5em
+    margin-left: 0.5em;
+    padding-top: 3px;
 }
 
 /**********************************************

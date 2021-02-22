@@ -11,23 +11,26 @@
     padding: 4em 0;
 }
 
-.col_two > :first-child {
+.col_two> :first-child {
     width: 50%;
     padding-right: 5em;
 }
 
-.col_two > :last-child {
+.col_two> :last-child {
     width: 50%
 }
 
 .col_two h4 {
     font-size: 34px;
-    font-weight: 600;
 }
 
 .col_two h5 {
     font-size: 18px;
     margin-bottom: 1em;
+}
+
+.col_two h5+p {
+    margin-bottom: 2em;
 }
 
 .col_two p {
@@ -37,30 +40,63 @@
 
 .col_two img {
     width: 350px;
-    height: 225px;
+    height: auto;
+}
+
+.col_two h5+div {
+    font-size: 34px;
+    line-height: 115%;
+    font-weight: 600;
 }
 
 /**********************************************
 ****************MEDIA QUERIES******************
 ***********************************************/
 
+/** Tablet Landscape **/
+@media screen and (max-width: 1024px) {
+    .col_two {
+        flex-direction: column;
+        padding: 1em 0;
+    }
+
+    .col_two> :first-child {
+        width: 100%;
+        padding: 0;
+        margin-top: 3em;
+    }
+
+    .col_two> :last-child {
+        width: 100%;
+        margin-top: 3em;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .col_two {
         flex-direction: column;
         padding: 1em 0;
     }
+
     .col_two div {
         margin: 1em 0;
     }
+
     .col_two img {
         width: 80vw;
-        height: 80vw;
+        height: auto;
     }
-    .col_two > :first-child {
+
+    .col_two> :first-child {
         width: 100%;
         padding: 0;
     }
-    .col_two > :last-child {
+
+    .col_two> :last-child {
         width: 100%
+    }
+
+    .col_two h5+div {
+        font-size: 24px;
     }
 }

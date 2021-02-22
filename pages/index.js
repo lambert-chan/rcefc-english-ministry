@@ -31,7 +31,7 @@ export default function Home() {
 
             {/**BANNER ONE */}
             <LargeBanner className={theme}>
-              <h1>We exist to glorify God by making His gospel known to the world</h1>
+              <h1>we exist to glorify God by making His gospel known to the world</h1>
               <p>
                 Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit - Matthew 28:19
               </p>
@@ -53,7 +53,7 @@ export default function Home() {
 
 
           <SmallBanner className="white">
-            <h1>Something for everyone</h1>
+            <h2>Something for everyone</h2>
             <p>Community helps us grow, it supports us in times of need and we all need some connection
               in order for us accomplish more as fellow children of God.</p>
             <div className={homeStyles.cards_container}>
@@ -110,7 +110,7 @@ export default function Home() {
           </SmallBanner>
 
           <SmallBanner className={theme}>
-            <h1>We're here for you</h1>
+            <h2>We're here for you</h2>
             <p>Our prayer team is ready to work with you for that breakthrough that you need in your life. All prayer requests will remain confidential.</p>
             <Link href="/forms/prayer">
               <Button>Request Prayer</Button>

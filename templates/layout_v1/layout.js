@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/Home.module.css'
-import { Layout, Image } from 'antd'
+import { Layout } from 'antd'
 import Link from 'next/link';
 import RCEFCMenu from '../../components/menu'
 import headerStyles from '../../styles/header.module.css'
@@ -19,9 +19,7 @@ class LayoutV1 extends React.Component {
                                 <Link href="/">
                                     <div className={headerStyles.site_logo}>
                                         <img src="https://english.rcefc.org/wp-content/uploads/2020/12/rcefc_logo.png" alt="RCEFC_logo"/>
-                                        <div>
-                                            RCEFC
-                                        </div>
+                                        <div><span>RCEFC</span></div>
                                     </div>
                                 </Link>
                             </div>
