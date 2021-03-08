@@ -22,6 +22,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
         <meta name="description" content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world." />
+        <meta name="keywords" content="rcefc, english, ministry, em"/>
+        <meta name="language" content="English"/>
       </Head>
 
       <main>
