@@ -21,7 +21,7 @@
 .large_banner p {
     font-size: 18px;
     font-weight: 600;
-    margin: 5em 0;
+    margin: 4em 0;
 }
 
 /**General Banner **/
@@ -197,7 +197,7 @@
 }
 
 /** Phones **/
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 812px) {
     .large_banner h1 {
         font-size: 36px;
     }
@@ -242,5 +242,23 @@
     }
     .card_content button {
         top: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 140px;
+    }
+}
+
+@media screen and (max-height: 675px) {
+    .large_banner {
+        height: 100vh; 
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .large_banner {
+        height: 110vh; 
     }
 }
