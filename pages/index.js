@@ -22,14 +22,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
         <meta name="description" content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world." />
-        <meta name="keywords" content="rcefc, english, ministry, em"/>
-        <meta name="language" content="English"/>
+        <meta name="keywords" content="rcefc, english, ministry, em" />
+        <meta name="language" content="English" />
       </Head>
 
       <main>
         <Alert message="We’re meeting online as we follow BC Health Authority restrictions to help control the spread of Covid-19." />
         <LayoutV1>
-          <Carousel autoplay speed={2000} autoplaySpeed={5000}>
+          <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
             {/**BANNER ONE */}
             <LargeBanner className={theme}>
@@ -46,6 +46,21 @@ export default function Home() {
                 <Link href="/contacts">
                   <Button>
                     Get in touch
+                  </Button>
+                </Link>
+              </div>
+            </LargeBanner>
+
+            {/**Easter 2021 Banner */}
+            <LargeBanner className={theme}>
+              <h1>Easter Sunday Drive In Worship</h1>
+              <p>
+                Join us on Sunday, April 4, 2021 at 10:45 am as we celebrate that Jesus has risen!
+              </p>
+              <div>
+                <Link href="/forms/easter2021">
+                  <Button>
+                    Sign up
                   </Button>
                 </Link>
               </div>

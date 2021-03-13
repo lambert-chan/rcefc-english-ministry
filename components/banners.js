@@ -18,7 +18,7 @@ export class LargeBanner extends React.Component {
 export class SmallBanner extends React.Component {
     render() {
         return (
-            <div className={bannerStyles.large_banner + ` ${this.props.className}`} id={this.props.id}>
+            <div className={bannerStyles.small_banner + ` ${this.props.className}`} id={this.props.id}>
                 <div className={bannerStyles.banner_content_container}>
                     <div className={bannerStyles.banner_content}>
                         {this.props.children}
