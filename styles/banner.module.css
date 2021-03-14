@@ -197,7 +197,7 @@
 }
 
 /** Phones **/
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 765px) {
     .large_banner h1 {
         font-size: 36px;
     }
@@ -210,6 +210,9 @@
     .small_banner button {
         margin-top: 1em;
     }
+    .small_banner p {
+        margin: 3em 0;
+    }
     .page_banner h1 {
         font-size: 48px;
     }
@@ -217,21 +220,25 @@
         font-size: 20px;
     }
     .page_banner .banner_content > h5+p {
-        font-size: 24px;
+        font-size: 18px;
     }
     .page_banner .banner_content > div:first-child > h5+p {
-        font-size: 24px;
+        font-size: 18px;
     }
     .title_banner h1 {
         font-size: 48px;
     }
+    .banner_content_container h2 {
+        font-size: 32px;
+        font-weight: 600;
+    }    
     .banner_content iframe {
         width: 90vw;
         height: 90vw;
     }
     .card {
-        height: 240px;
-        width: 160px;
+        height: 200px;
+        width: 140px;
         padding: 0.75em;
     }
     .card_content h3{
@@ -239,15 +246,10 @@
     }
     .card_content p {
         font-size: 12px;
+        margin: 1em 0;
     }
     .card_content button {
         top: 0;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .card {
-        width: 140px;
     }
 }
 
