@@ -8,18 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.3.0",
-    "@apollo/client": "^3.3.6",
-    "antd": "^4.9.4",
-    "graphql": "^15.4.0",
+    "@ant-design/icons": "^4.5.0",
+    "@apollo/client": "^3.3.11",
+    "antd": "^4.14.0",
+    "graphql": "^15.5.0",
     "html-react-parser": "^1.2.4",
-    "less": "^4.1.0",
+    "less": "^4.1.1",
     "moment": "^2.29.1",
-    "next": "10.0.3",
+    "next": "10.0.8",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-html-parser": "^2.0.2",
     "react-moment": "^1.1.1",
-    "react-scroll": "^1.8.1"
+    "react-scroll": "^1.8.2"
   }
 }

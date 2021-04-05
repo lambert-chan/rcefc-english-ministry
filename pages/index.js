@@ -51,21 +51,6 @@ export default function Home() {
               </div>
             </LargeBanner>
 
-            {/**Easter 2021 Banner */}
-            <LargeBanner className={theme}>
-              <h1>Easter Sunday Drive In Worship</h1>
-              <p>
-                Join us on Sunday, April 4, 2021 at 10:45 am as we celebrate that Jesus has risen!
-              </p>
-              <div>
-                <Link href="/forms/easter2021">
-                  <Button>
-                    Sign up
-                  </Button>
-                </Link>
-              </div>
-            </LargeBanner>
-
           </Carousel>
 
 
