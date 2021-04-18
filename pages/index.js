@@ -31,7 +31,27 @@ export default function Home() {
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
-            {/**BANNER ONE */}
+            {/**Feature Banner */}
+            <LargeBanner className={theme}>
+              <h1>Drive-in Worship Sunday</h1>
+              <p>
+                Come join us for another opportunity to worship together (in cars) on May 2, 2021
+              </p>
+              <div>
+                <Link href="/forms/drivein">
+                  <Button>
+                    Sign up now
+                  </Button>
+                </Link>
+                <Link href="/join-us/worship">
+                  <Button>
+                    Join online
+                  </Button>
+                </Link>
+              </div>
+            </LargeBanner>
+
+            {/** Banner One */}
             <LargeBanner className={theme}>
               <h1>we exist to glorify God by making His gospel known to the world</h1>
               <p>

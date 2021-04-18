@@ -68,7 +68,10 @@ class DriveIn extends React.Component {
     }
 
     render() {
-        let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
+        // let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
+
+        // For specific dates
+        let date = moment("05/02/2021")
         return (
             <div>
                 <Head>
