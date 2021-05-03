@@ -71,7 +71,7 @@ class DriveIn extends React.Component {
         // let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
 
         // For specific dates
-        let date = moment("05/02/2021")
+        let date = moment("06/06/2021")
         return (
             <div>
                 <Head>
@@ -142,7 +142,7 @@ class DriveIn extends React.Component {
                                         name="car_occupants"
                                         htmlFor="drivein-form-car-occupants"
                                         rules={[{ required: true, message: 'Please input the number of occupants in the car' }]}>
-                                        <Input id="drivein-form-car-occupants" type='number' name="car_occupants" onChange={this.handleInputChange} />
+                                        <Input id="drivein-form-car-occupants" min='1' type='number' name="car_occupants" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <div>
                                         <h2>Please confirm the following statements for you and your family members.</h2>

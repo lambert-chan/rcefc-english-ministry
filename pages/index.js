@@ -35,7 +35,7 @@ export default function Home() {
             <LargeBanner className={theme}>
               <h1>Drive-in Worship Sunday</h1>
               <p>
-                Come join us for another opportunity to worship together (in cars) on May 2, 2021
+                Come join us for another opportunity to worship together (in cars) on June 6, 2021
               </p>
               <div>
                 <Link href="/forms/drivein">
