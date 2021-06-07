@@ -32,7 +32,7 @@ export default function Home() {
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
             {/**Feature Banner */}
-            <LargeBanner className={theme}>
+            {/* <LargeBanner className={theme}>
               <h1>Drive-in Worship Sunday</h1>
               <p>
                 Come join us for another opportunity to worship together (in cars) on June 6, 2021
@@ -49,7 +49,7 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-            </LargeBanner>
+            </LargeBanner> */}
 
             {/** Banner One */}
             <LargeBanner className={theme}>

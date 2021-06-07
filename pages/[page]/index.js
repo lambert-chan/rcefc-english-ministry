@@ -64,87 +64,87 @@ export default function Page({ pageData }) {
                 {router.isFallback ? (
                     <h2>Loading...</h2>
                 ) : (
-                        <LayoutV1>
-                            <TitleBanner className={theme} id={pageData.slug} key={pageData.slug}>
-                                <h1>{pageData.title}</h1>
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: pageData.content }}
-                                />
-                            </TitleBanner>
+                    <LayoutV1>
+                        <TitleBanner className={theme} id={pageData.slug} key={pageData.slug}>
+                            <h1>{pageData.title}</h1>
+                            <div
+                                dangerouslySetInnerHTML={{ __html: pageData.content }}
+                            />
+                        </TitleBanner>
 
-                            {/**Hard coded - Join Us Banners */}
-                            {pageData.slug == 'join-us' && (
-                                <SmallBanner className="white">
-                                    <h1>Something for everyone</h1>
-                                    <p>Community helps us grow, it supports us in times of need and we all need some connection in order for us accomplish more as fellow children of God.</p>
-                                    <div className={homeStyles.cards_container}>
-                                        <div className={homeStyles.cards_two}>
-                                            <Card>
-                                                <h3 >Sunday Service</h3>
-                                                <p>EVERY WEEK AT 10:45AM</p>
-                                                <Link href="/join-us/worship">
-                                                    <Button>Tune in Live</Button>
-                                                </Link>
-                                            </Card>
-                                            <Card>
-                                                <h3>Childrens</h3>
-                                                <p>AWANA AND SUNDAY SCHOOL</p>
-                                                <Link href="/join-us/children">
-                                                    <Button>Learn More</Button>
-                                                </Link>
-                                            </Card>
-                                        </div>
-                                        <div className={homeStyles.cards_two}>
-                                            <Card>
-                                                <h3>Young Adults</h3>
-                                                <p>WEDNESDAY NIGHTS</p>
-                                                <Link href="/join-us/yads">
-                                                    <Button>Learn More</Button>
-                                                </Link>
-                                            </Card>
-                                            <Card>
-                                                <h3>Adults</h3>
-                                                <p>SUNDAY AFTERNOON</p>
-                                                <Link href="/join-us/adults">
-                                                    <Button>Learn More</Button>
-                                                </Link>
-                                            </Card>
-                                        </div>
-                                        <div className={homeStyles.cards_two}>
-                                            <Card>
-                                                <h3>Sermons</h3>
-                                                <p>New recordings weekly</p>
-                                                <Link href="/join-us/sermon-recording-list">
-                                                    <Button>Listen Here</Button>
-                                                </Link>
-                                            </Card>
-                                            <Card>
-                                                <h3>Small Groups</h3>
-                                                <p>FIND YOUR COMMUNITY</p>
-                                                <Link href="/join-us/small-groups">
-                                                    <Button>Learn More</Button>
-                                                </Link>
-                                            </Card>
-                                        </div>
+                        {/**Hard coded - Join Us Banners */}
+                        {pageData.slug == 'join-us' && (
+                            <SmallBanner className="white">
+                                <h1>Something for everyone</h1>
+                                <p>Community helps us grow, it supports us in times of need and we all need some connection in order for us accomplish more as fellow children of God.</p>
+                                <div className={homeStyles.cards_container}>
+                                    <div className={homeStyles.cards_two}>
+                                        <Card>
+                                            <h3>Sunday Service</h3>
+                                            <p>EVERY WEEK AT 10:45AM</p>
+                                            <Link href="/join-us/worship">
+                                                <Button>Tune in Live</Button>
+                                            </Link>
+                                        </Card>
+                                        <Card>
+                                            <h3>Childrens</h3>
+                                            <p>AWANA AND SUNDAY SCHOOL</p>
+                                            <Link href="/join-us/children">
+                                                <Button>Learn More</Button>
+                                            </Link>
+                                        </Card>
                                     </div>
-                                </SmallBanner>
-                            )}
+                                    <div className={homeStyles.cards_two}>
+                                        <Card>
+                                            <h3>Young Adults</h3>
+                                            <p>WEDNESDAY NIGHTS</p>
+                                            <Link href="/join-us/yads">
+                                                <Button>Learn More</Button>
+                                            </Link>
+                                        </Card>
+                                        <Card>
+                                            <h3>Adults</h3>
+                                            <p>SUNDAY AFTERNOON</p>
+                                            <Link href="/join-us/adults">
+                                                <Button>Learn More</Button>
+                                            </Link>
+                                        </Card>
+                                    </div>
+                                    <div className={homeStyles.cards_two}>
+                                        <Card>
+                                            <h3>Sermons</h3>
+                                            <p>New recordings weekly</p>
+                                            <Link href="/join-us/sermon-recording-list">
+                                                <Button>Listen Here</Button>
+                                            </Link>
+                                        </Card>
+                                        <Card>
+                                            <h3>Small Groups</h3>
+                                            <p>FIND YOUR COMMUNITY</p>
+                                            <Link href="/join-us/small-groups">
+                                                <Button>Learn More</Button>
+                                            </Link>
+                                        </Card>
+                                    </div>
+                                </div>
+                            </SmallBanner>
+                        )}
 
-                            {/* About pages layout */}
-                            {pageData.slug !== 'join-us' && (
-                                pageData.children.edges.map(edge => {
-                                    let subpage = edge.node
-                                    let parsed = parse(remove_linebreaks(subpage.content), options)
-                                    return (
-                                        <PageBanner className={++banner_index % 2 == 0 ? theme : 'white'} id={subpage.slug} key={subpage.slug}>
-                                            <h5>{subpage.title.toUpperCase()}</h5>
-                                            {parsed[0] ? parsed.map(group => group) : parsed}
-                                        </PageBanner>
-                                    )
-                                })
-                            )}
-                        </LayoutV1>
-                    )}
+                        {/* About pages layout */}
+                        {pageData.slug !== 'join-us' && (
+                            pageData.children.edges.map(edge => {
+                                let subpage = edge.node
+                                let parsed = parse(remove_linebreaks(subpage.content), options)
+                                return (
+                                    <PageBanner className={++banner_index % 2 == 0 ? theme : 'white'} id={subpage.slug} key={subpage.slug}>
+                                        <h5>{subpage.title.toUpperCase()}</h5>
+                                        {parsed[0] ? parsed.map(group => group) : parsed}
+                                    </PageBanner>
+                                )
+                            })
+                        )}
+                    </LayoutV1>
+                )}
             </main>
         </div>
     )
