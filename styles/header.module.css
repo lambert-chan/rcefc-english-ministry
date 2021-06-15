@@ -11,6 +11,7 @@
     float: right;
     font-weight: 800;
     font-size: 18px;
+    max-width: 50%;
 }
 
 .site_logo {
