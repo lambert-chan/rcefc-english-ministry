@@ -88,7 +88,7 @@ export default function Home() {
                   </Link>
                 </Card>
                 <Card>
-                  <h3>Childrens</h3>
+                  <h3>Children</h3>
                   <p>AWANA AND SUNDAY SCHOOL</p>
                   <Link href="/join-us/children">
                     <Button>Learn More</Button>
