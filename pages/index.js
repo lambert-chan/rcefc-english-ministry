@@ -27,20 +27,20 @@ export default function Home() {
       </Head>
 
       <main>
-        <Alert message="We’re meeting online as we follow BC Health Authority restrictions to help control the spread of Covid-19." />
+        <Alert message="In-person worship resumes July 4th, 2021 in compliance with BC government's re-opening plan." />
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
             {/**Feature Banner */}
-            {/* <LargeBanner className={theme}>
-              <h1>Drive-in Worship Sunday</h1>
+            <LargeBanner className={theme}>
+              <h1>Attend In-Person Worship</h1>
               <p>
-                Come join us for another opportunity to worship together (in cars) on June 6, 2021
+                Come join us as the church resumes in-person service at 9:30 am!
               </p>
               <div>
-                <Link href="/forms/drivein">
+                <Link href="/forms/attend">
                   <Button>
-                    Sign up now
+                    Register now
                   </Button>
                 </Link>
                 <Link href="/join-us/worship">
@@ -49,7 +49,7 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-            </LargeBanner> */}
+            </LargeBanner>
 
             {/** Banner One */}
             <LargeBanner className={theme}>
@@ -60,7 +60,7 @@ export default function Home() {
               <div>
                 <Link href="/join-us/worship">
                   <Button>
-                    Join an online service
+                    Join a service
                   </Button>
                 </Link>
                 <Link href="/contacts">
@@ -82,7 +82,7 @@ export default function Home() {
               <div className={homeStyles.cards_two}>
                 <Card>
                   <h3 >Sunday Service</h3>
-                  <p>EVERY WEEK AT 10:45AM</p>
+                  <p>EVERY WEEK AT 9:30AM</p>
                   <Link href="/join-us/worship">
                     <Button>Tune in Live</Button>
                   </Link>
