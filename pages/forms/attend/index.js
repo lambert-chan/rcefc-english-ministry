@@ -65,10 +65,10 @@ class inperson extends React.Component {
     }
 
     render() {
-        // let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
+        let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
 
         // For specific dates
-        let date = moment("07/04/2021")
+        // let date = moment("07/04/2021")
         return (
             <div>
                 <Head>

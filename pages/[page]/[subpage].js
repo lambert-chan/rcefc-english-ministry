@@ -107,9 +107,9 @@ export default function Page({ pageData }) {
 
 export async function getStaticPaths() {
     const menuPaths = await getAllMenuItems();
-    let subMenuItems = menuPaths.filter(item => item.parentId)
+    let subMenuItems = menuPaths?.filter(item => item.parentId)
     return {
-        paths: subMenuItems.map(node => `${node.path}`) || [],
+        paths: subMenuItems?.map(node => `${node.path}`) || [],
         fallback: true
     }
 }
