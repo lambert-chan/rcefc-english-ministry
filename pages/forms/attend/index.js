@@ -138,7 +138,7 @@ class inperson extends React.Component {
                                         </p>
                                     </div>
                                     <Form.Item
-                                        label="We/I have NOT arrived from outside of Canada recently, or been in contact of a confirmed COVID-19 case"
+                                        label="I have NOT arrived from outside of Canada recently, or been in contact of a confirmed COVID-19 case"
                                         name="not_outside_of_canada"
                                         htmlFor="inperson-form-not-outside-of-canada"
                                         colon={false}
@@ -154,7 +154,7 @@ class inperson extends React.Component {
                                         </Radio.Group>
                                     </Form.Item>
                                     <Form.Item
-                                        label="We/I have NOT had symptoms of COVID-19 in the last 10 days 
+                                        label="I have NOT had symptoms of COVID-19 in the last 10 days 
                                         (fever, chills, new or worsening cough, shortness of breath, sore throat and new muscle aches or headache)"
                                         name="no_symptoms"
                                         htmlFor="inperson-form-no-symptoms"
@@ -171,9 +171,9 @@ class inperson extends React.Component {
                                         </Radio.Group>
                                     </Form.Item>
                                     <Form.Item
-                                        label="My family and I have considered underlying health and medical conditions,
+                                        label="I have considered underlying health and medical conditions,
                                          and factors which increase our risk, or risk to a close contact and have individually made a judgment call on whether or not it is safe for us to attend.
-                                         We understand that if we are in close contact with another person who has COVID-19 we will be required by Health officials to self-isolate for 14 days."
+                                         I understand that if I am in close contact with another person who has COVID-19 I will be required by Health officials to self-isolate for 14 days."
                                         name="consider_underlying_health"
                                         htmlFor="inperson-form-consider-underlying-health"
                                         colon={false}
