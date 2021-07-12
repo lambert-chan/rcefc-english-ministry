@@ -58,21 +58,29 @@ class inperson extends React.Component {
             });
     };
 
-    getDeadline = () => {
-        let currentDay = moment().weekday()
-        let deadlineMoment = moment().add(currentDay < 7 ? 0 : 1, 'week').day(7).hour(12).minute(0)
-        return moment() < deadlineMoment
+    getDate = () => {
+        let currDatetime = moment()
+        let deadline = 12
+
+        // Test cases:
+        // currDatetime = moment("2021-07-06 11:11:11") // test middle of week before = 11
+        // currDatetime = moment("2021-07-11 09:30:00") // test sun morn, result = 11
+        // currDatetime = moment("2021-07-11 12:01:00") // test sun afternoon, result = 18
+        // currDatetime = moment("2021-07-14 12:00:00") // test middle of week, result = 18
+
+        // if currentTime is sunday morning before 12 stay on the current Sunday, otherwise go to next Sunday
+        return currDatetime.day((currDatetime.weekday() == 0 && currDatetime.hour() < deadline) ? 0 : 7)
     }
 
     render() {
-        let date = moment().add(this.getDeadline() ? 0 : 1, 'week').day(7)
+        let date = this.getDate()
 
         // For specific dates
-        // let date = moment("07/04/2021")
+        // let date = moment("2021-07-04")
         return (
             <div>
                 <Head>
-                    <title>Service Registration</title>
+                    <title>Worship Service Registration</title>
                     <link rel='icon' href='/favicon.ico' />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
                 </Head>
