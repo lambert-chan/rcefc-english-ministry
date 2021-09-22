@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head';
-import { Form, Input, Button, Radio } from 'antd'
+import { Form, Input, Button, Radio, InputNumber } from 'antd'
 import moment from 'moment'
 
 import styles from '../../../styles/Home.module.css';
@@ -11,10 +11,11 @@ class inperson extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            date : '',
+            date: '',
             name: '',
             phone: '',
             email: '',
+            household_members: 1,
             not_outside_of_canada: '',
             no_symptoms: '',
             consider_underlying_health: '',
@@ -30,6 +31,13 @@ class inperson extends React.Component {
         });
     };
 
+    handleHouseholdChange = (value) => {
+        let name = "household_members"
+        this.setState({
+            [name]: value
+        })
+    }
+
     encode = (data) => {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -43,7 +51,7 @@ class inperson extends React.Component {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: this.encode({ 'form-name': formName, ...this.state, 'date' : date })
+            body: this.encode({ 'form-name': formName, ...this.state, 'date': date })
         }
 
         fetch(
@@ -89,9 +97,10 @@ class inperson extends React.Component {
                     <LayoutV1>
                         <div className={formStyles.form_container}>
                             <div className={formStyles.form}>
-                                <h1 className={styles.title}>English Ministry Service Registration - {date.format('MMMM D, YYYY')}</h1>
+                                <h1 className={styles.title}>English Ministry Service Registration</h1>
+                                <h2>{date.format('MMMM D, YYYY')}</h2>
                                 <div className={formStyles.description}>
-                                    <p><strong>Everyone who is attending must register, children included.</strong></p>
+                                    <p><strong>Everyone who is attending must register, children included. Families living in the same household may register together.</strong></p>
                                     <p>Please provide your first and last name and one form of contact information prior to coming to our worship session.</p>
                                     <p>Names and contact info will be kept for 30 days after the event for the sole purpose of contact tracing if the need arises.</p>
                                     <p>We recommend for you to arrive 10 - 15 minutes earlier as there will be extra safety checks</p>
@@ -134,6 +143,14 @@ class inperson extends React.Component {
                                         rules={[{ required: true, type: 'email', message: 'Please input your email' }]}
                                     >
                                         <Input id="inperson-form-email" name="email" onChange={this.handleInputChange} />
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Household Members"
+                                        name="household_members"
+                                        htmlFor="inperson-form-household-members"
+                                        rules={[{ required: true, type: 'number', message: 'Please input household members (including yourself)' }]}
+                                    >
+                                        <InputNumber min="1" max="6" id="inperson-form-household-members" name="household_members" onChange={this.handleHouseholdChange} />
                                     </Form.Item>
                                     <div>
                                         <h2>Please confirm the following statements.</h2>

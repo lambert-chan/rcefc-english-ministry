@@ -36,3 +36,7 @@
 .home_button {
   float: left;
 }
+
+.title {
+  margin-bottom: 0;
+}
