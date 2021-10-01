@@ -14,7 +14,11 @@ const SuccessfulForm = () => (
         <main>
             <LayoutV1>
                 <div style={{display: 'flex', justifyContent: 'center', padding: '3em', height: '100vh'}}>
-                    <h1>Success! Thanks for filling the form, we look forward to seeing you face to face at 9:30 am on Sunday!</h1>
+                    <h1>
+                        <p>Success! Thank you for registering.</p>
+                        <p>Please arrive a few minutes early to sanitize your hands and find a seat, and remember to bring your mask.</p>
+                        <p>We look forward to seeing you face to face at 9:30 am on Sunday! </p>
+                    </h1>
                 </div>
             </LayoutV1>
         </main>

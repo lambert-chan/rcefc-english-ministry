@@ -18,7 +18,8 @@ class inperson extends React.Component {
             household_members: 1,
             not_outside_of_canada: '',
             no_symptoms: '',
-            consider_underlying_health: '',
+            been_in_contact_with_covid19_person: '',
+            asked_to_self_monitor: ''
         }
     }
 
@@ -101,9 +102,8 @@ class inperson extends React.Component {
                                 <h2>{date.format('MMMM D, YYYY')}</h2>
                                 <div className={formStyles.description}>
                                     <p><strong>Everyone who is attending must register, children included. Families living in the same household may register together.</strong></p>
-                                    <p>Please provide your first and last name and one form of contact information prior to coming to our worship session.</p>
+                                    <p>Please provide your first and last name(s) and one form of contact information prior to coming to our worship session.</p>
                                     <p>Names and contact info will be kept for 30 days after the event for the sole purpose of contact tracing if the need arises.</p>
-                                    <p>We recommend for you to arrive 10 - 15 minutes earlier as there will be extra safety checks</p>
                                 </div>
 
                                 <Form
@@ -121,7 +121,7 @@ class inperson extends React.Component {
                                         <Input id="inperson-form-date" name="date" defaultValue={date.format('YYYY-MM-DD')} type="date" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
-                                        label="Name"
+                                        label="Name (First and Last)"
                                         name="name"
                                         htmlFor="inperson-form-name"
                                         rules={[{ required: true, type: 'string', message: 'Please input your name' }]}
@@ -145,7 +145,7 @@ class inperson extends React.Component {
                                         <Input id="inperson-form-email" name="email" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
-                                        label="Household Members"
+                                        label="Number of hosuehold members attending the service"
                                         name="household_members"
                                         htmlFor="inperson-form-household-members"
                                         rules={[{ required: true, type: 'number', message: 'Please input household members (including yourself)' }]}
@@ -163,7 +163,7 @@ class inperson extends React.Component {
                                         </p>
                                     </div>
                                     <Form.Item
-                                        label="I have NOT arrived from outside of Canada recently, or been in contact of a confirmed COVID-19 case"
+                                        label="In the past two weeks, has anyone in your gorup arrived/returned from outside of Canada?"
                                         name="not_outside_of_canada"
                                         htmlFor="inperson-form-not-outside-of-canada"
                                         colon={false}
@@ -179,8 +179,8 @@ class inperson extends React.Component {
                                         </Radio.Group>
                                     </Form.Item>
                                     <Form.Item
-                                        label="I have NOT had symptoms of COVID-19 in the last 10 days 
-                                        (fever, chills, new or worsening cough, shortness of breath, sore throat and new muscle aches or headache)"
+                                        label="Does anyone in your group have any of the following symptoms of COVID-19? 
+                                        (Fever, chills, cought, severe fatique/tiredness, shortness of breath, nausea, vomitting, loss of taste or smell)"
                                         name="no_symptoms"
                                         htmlFor="inperson-form-no-symptoms"
                                         className="flex-column"
@@ -196,15 +196,29 @@ class inperson extends React.Component {
                                         </Radio.Group>
                                     </Form.Item>
                                     <Form.Item
-                                        label="I have considered underlying health and medical conditions,
-                                         and factors which increase our risk, or risk to a close contact and have individually made a judgment call on whether or not it is safe for us to attend.
-                                         I understand that if I am in close contact with another person who has COVID-19 I will be required by Health officials to self-isolate for 14 days."
-                                        name="consider_underlying_health"
-                                        htmlFor="inperson-form-consider-underlying-health"
+                                        label="In the past 2 weeks, has anyone in your group been in contact with someone with COVID-19?"
+                                        name="been_in_contact_with_covid19_person"
+                                        htmlFor="inperson-form-been-in-contact-with-covid19-person"
                                         colon={false}
                                         className="flex-column"
                                         rules={[{ required: true, message: 'Please check yes/no' }]}>
-                                        <Radio.Group id="inperson-form-consider-underlying-health" name="consider_underlying_health" onChange={this.handleInputChange}>
+                                        <Radio.Group id="inperson-form-been-in-contact-with-covid19-person" name="been_in_contact_with_covid19_person" onChange={this.handleInputChange}>
+                                            <Radio value='yes'>
+                                                Yes
+                                            </Radio>
+                                            <Radio value='no'>
+                                                No
+                                            </Radio>
+                                        </Radio.Group>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="In the past 2 weeks, has anyone in your group been advised by Public Health to self-monitor or self-isolate?"
+                                        name="asked_to_self_monitor"
+                                        htmlFor="inperson-form-asked-to-self-monitor"
+                                        colon={false}
+                                        className="flex-column"
+                                        rules={[{ required: true, message: 'Please check yes/no' }]}>
+                                        <Radio.Group id="inperson-form-asked-to-self-monitor" name="asked_to_self_monitor" onChange={this.handleInputChange}>
                                             <Radio value='yes'>
                                                 Yes
                                             </Radio>
