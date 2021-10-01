@@ -163,7 +163,7 @@ class inperson extends React.Component {
                                         </p>
                                     </div>
                                     <Form.Item
-                                        label="In the past two weeks, has anyone in your gorup arrived/returned from outside of Canada?"
+                                        label="In the past two weeks, has anyone in your group arrived/returned from outside of Canada?"
                                         name="not_outside_of_canada"
                                         htmlFor="inperson-form-not-outside-of-canada"
                                         colon={false}
@@ -180,7 +180,7 @@ class inperson extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Does anyone in your group have any of the following symptoms of COVID-19? 
-                                        (Fever, chills, cought, severe fatique/tiredness, shortness of breath, nausea, vomitting, loss of taste or smell)"
+                                        (Fever, chills, coughs, severe fatigue/tiredness, shortness of breath, nausea, vomitting, loss of taste or smell)"
                                         name="no_symptoms"
                                         htmlFor="inperson-form-no-symptoms"
                                         className="flex-column"
