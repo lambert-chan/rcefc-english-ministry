@@ -145,7 +145,7 @@ class inperson extends React.Component {
                                         <Input id="inperson-form-email" name="email" onChange={this.handleInputChange} />
                                     </Form.Item>
                                     <Form.Item
-                                        label="Number of hosuehold members attending the service"
+                                        label="Number of household members attending the service"
                                         name="household_members"
                                         htmlFor="inperson-form-household-members"
                                         rules={[{ required: true, type: 'number', message: 'Please input household members (including yourself)' }]}
