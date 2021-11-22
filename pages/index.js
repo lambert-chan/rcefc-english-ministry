@@ -31,6 +31,17 @@ export default function Home() {
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
+            {/**2021 AGM - REMOVE AFTER NOV 28, 2021 */}
+            <LargeBanner className={theme}>
+              <h1>2021 AGM</h1>
+              <p>RCEFC will be having it's Annual General Meeting for members on November 28, 2021 at 2:30 pm. A Zoom link has been sent out to all church members. If you would like to attend in person at church, please pre-register with the form below to attend the meeting or call the church office (604-231-0511).</p>
+              <div>
+                <Link href="https://www.rcefc.org/2021AGM/">
+                  <Button>AGM Registration Form</Button>
+                </Link>
+              </div>
+            </LargeBanner>
+
             {/**Feature Banner */}
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
