@@ -144,14 +144,16 @@ class inperson extends React.Component {
                                     >
                                         <Input id="inperson-form-email" name="email" onChange={this.handleInputChange} />
                                     </Form.Item>
-                                    <Form.Item
-                                        label="Number of household members attending the service"
-                                        name="household_members"
-                                        htmlFor="inperson-form-household-members"
-                                        rules={[{ required: true, type: 'number', message: 'Please input household members (including yourself)' }]}
-                                    >
-                                        <InputNumber min="1" max="6" id="inperson-form-household-members" name="household_members" onChange={this.handleHouseholdChange} />
-                                    </Form.Item>
+                                    <div className={formStyles.household_input}>
+                                        <Form.Item
+                                            label="Number of household members attending service"
+                                            name="household_members"
+                                            htmlFor="inperson-form-household-members"
+                                            rules={[{ required: true, type: 'number', message: 'Please input household members (including yourself)' }]}
+                                        >
+                                            <InputNumber min="1" max="6" id="inperson-form-household-members" name="household_members" onChange={this.handleHouseholdChange} />
+                                        </Form.Item>
+                                    </div>
                                     <div>
                                         <h2>Please confirm the following statements.</h2>
                                         <p>For more info please visit
