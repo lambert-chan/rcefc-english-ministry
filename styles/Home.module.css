@@ -40,15 +40,3 @@
 .title {
   margin-bottom: 0;
 }
-
-.christmasEve {
-  background-image: url('https://chinese.rcefc.org/wp-content/uploads/2021/12/UntoUsChristmas_blank-1.jpg');
-}
-
-.christmasEve h1, .christmasEve p, .christmasEve button {
-  color: white !important;
-}
-
-.christmasEve button {
-  background: #6a4d84 !important;
-}

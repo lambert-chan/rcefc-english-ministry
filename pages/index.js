@@ -30,29 +30,6 @@ export default function Home() {
         <Alert message="In-person worship resumes July 4th, 2021 in compliance with BC government's re-opening plan." />
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
-            
-            {/**Christmas Eve Banner */}
-            <LargeBanner className={homeStyles.christmasEve}>
-              <h1>Christmas Eve Joint Worship</h1>
-              <p>
-                We welcome you to sign up for our joint worship on December 24 @ 8:00 pm!
-              </p>
-              <p>
-                Note: Due to covid restrictions, capacity is limited and sign up is first come first serve.
-              </p>
-              <div>
-                <Link href="https://www.rcefc.org/christmaseve/">
-                  <Button>
-                    Register now
-                  </Button>
-                </Link>
-                <Link href="https://www.youtube.com/watch?v=j3VnkBYNG8w&ab_channel=RCEFC">
-                  <Button>
-                    Watch it live
-                  </Button>
-                </Link>
-              </div>
-            </LargeBanner>
 
             {/**Feature Banner */}
             <LargeBanner className={theme}>
