@@ -27,7 +27,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Alert message="In-person worship resumes July 4th, 2021 in compliance with BC government's re-opening plan." />
+        <Alert message="In-person Sunday service on January 2, 2022 will be suspended as Pastor Kwok Yin Ho has been tested positive for Covid-19. The church will resume in-person service the soonest after review of the situation." />
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
@@ -35,7 +35,7 @@ export default function Home() {
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
               <p>
-                Come join us as the church resumes in-person service at 9:30 am!
+                Come join us for in-person service at 9:30 am!
               </p>
               <div>
                 <Link href="/forms/attend">
