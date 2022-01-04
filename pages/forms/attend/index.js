@@ -97,21 +97,8 @@ class inperson extends React.Component {
 
                 <main>
                     <LayoutV1>
-                        <div style={{ display: 'flex', justifyContent: 'center', padding: '3em', height: '100vh', flexDirection: 'column' }}>
-                            <h1>The Board hereby announce that the in-person Sunday service will be suspended for January 2, 2022 as Pastor Kwok Yin had been tested positive of COVID-19 on December 28, 2021.
-                                This is a proactive measure to ensure no further spread of the virus.
-                                The church will resume in-person service the soonest after review of the situation.
-                                In the meantime, all Sunday services will be held virtually.</h1>
-                            <div>
-                                <Link href="/join-us/worship">
-                                    <Button>
-                                        Worship online
-                                    </Button>
-                                </Link>
-                            </div>
-                        </div>
 
-                        {/* <div className={formStyles.form_container}>
+                        <div className={formStyles.form_container}>
                             <div className={formStyles.form}>
                                 <h1 className={styles.title}>English Ministry Service Registration</h1>
                                 <h2>{date.format('MMMM D, YYYY')}</h2>
@@ -250,7 +237,7 @@ class inperson extends React.Component {
                                 </Form>
                             </div>
 
-                        </div> */}
+                        </div>
                     </LayoutV1>
 
                 </main>

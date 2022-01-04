@@ -22,12 +22,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
         <meta name="description" content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world." />
-        <meta name="keywords" content="rcefc, english, ministry, em" />
+        <meta name="keywords" content="rcefc, english, ministry, em, richmond, church" />
         <meta name="language" content="English" />
       </Head>
 
       <main>
-        <Alert message="In-person Sunday service on January 2, 2022 will be suspended as Pastor Kwok Yin Ho has been tested positive for Covid-19. The church will resume in-person service the soonest after review of the situation." />
+        <Alert message="In-person worships services resumes on January 9, 2022. Please register for the service." />
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
