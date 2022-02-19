@@ -97,8 +97,12 @@ class inperson extends React.Component {
 
                 <main>
                     <LayoutV1>
-
-                        <div className={formStyles.form_container}>
+                        <div style={{ display: 'flex', justifyContent: 'center', padding: '3em', height: '100vh' }}>
+                            <h1>                        The Board hereby announce that the EM in-person Sunday service will be suspended for February 20, 2022 and held online as Christine had been confirmed positive of COVID-19 on Tuesday, February 15th and Pastor Will also showed symptoms.
+The CM will continue Sunday service as usual both in-person and online this Sunday.
+Please pray for Pastor Will and Christine for full recovery.</h1>
+                        </div>
+                        {/* <div className={formStyles.form_container}>
                             <div className={formStyles.form}>
                                 <h1 className={styles.title}>English Ministry Service Registration</h1>
                                 <h2>{date.format('MMMM D, YYYY')}</h2>
@@ -237,7 +241,7 @@ class inperson extends React.Component {
                                 </Form>
                             </div>
 
-                        </div>
+                        </div> */}
                     </LayoutV1>
 
                 </main>

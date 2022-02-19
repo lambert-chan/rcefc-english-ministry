@@ -27,22 +27,30 @@ export default function Home() {
       </Head>
 
       <main>
-        <Alert message="In-person worships services resumes on January 9, 2022. Please register for the service." />
+        {/* <Alert message="In-person worships services resumes on January 9, 2022. Please register for the service." /> */}
+        <Alert message="The Board hereby announce that the EM in-person Sunday service will be suspended for February 20, 2022 and held online as Christine had been confirmed positive of COVID-19 on Tuesday, February 15th and Pastor Will also showed symptoms.
+The CM will continue Sunday service as usual both in-person and online this Sunday.
+Please pray for Pastor Will and Christine for full recovery."/>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
             {/**Feature Banner */}
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
-              <p>
+              {/* <p>
                 Come join us for in-person service at 9:30 am!
+              </p> */}
+              <p>
+              The Board hereby announce that the EM in-person Sunday service will be suspended for February 20, 2022 and held online as Christine had been confirmed positive of COVID-19 on Tuesday, February 15th and Pastor Will also showed symptoms.
+The CM will continue Sunday service as usual both in-person and online this Sunday.
+Please pray for Pastor Will and Christine for full recovery.
               </p>
               <div>
-                <Link href="/forms/attend">
+                {/* <Link href="/forms/attend">
                   <Button>
                     Register now
                   </Button>
-                </Link>
+                </Link> */}
                 <Link href="/join-us/worship">
                   <Button>
                     Join online
