@@ -27,7 +27,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Alert message="In-person worships services resumes on January 9, 2022. Please register for the service." />
+        <Alert message="In-person worships services resumes on February 13, 2022. No registration is necessary." />
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
 
@@ -38,9 +38,9 @@ export default function Home() {
                 Come join us for in-person service at 9:30 am!
               </p>
               <div>
-                <Link href="/forms/attend">
+                <Link href="/contacts/location">
                   <Button>
-                    Register now
+                    Join in-person
                   </Button>
                 </Link>
                 <Link href="/join-us/worship">
