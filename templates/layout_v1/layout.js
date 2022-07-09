@@ -30,7 +30,7 @@ class LayoutV1 extends React.Component {
                         {this.props.children}
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                        © 2021 RCEFC English Ministries
+                        © 2022 RCEFC English Ministries
                     </Footer>
                 </Layout>
             </React.Fragment>
