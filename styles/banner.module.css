@@ -264,3 +264,10 @@
         height: 110vh; 
     }
 }
+
+/* Reduce empty space on mobile phones */
+@media screen and (max-width: 400px) {
+    .large_banner {
+        height: 65vh;
+    }
+}
