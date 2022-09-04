@@ -26,13 +26,13 @@ class Alert extends React.Component {
     }
 
     render() {
-        let { message } = this.props;
+        let { children } = this.props;
         let { isActive } = this.state;
         return (isActive &&
             <div className="alert black">
                 <ExclamationCircleFilled />
                 <div>
-                    {message}
+                    {children && children}
                 </div>
                 <Button type='text' onClick={this.setDismissed}>
                     <CloseOutlined />

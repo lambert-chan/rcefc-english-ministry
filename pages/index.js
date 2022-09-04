@@ -13,6 +13,10 @@ export function getRandomTheme() {
   return `theme_${random_int}`
 }
 
+const AwanaMessage = () => {
+  <span>Registration for https://forms.gle/qrZjBW8fdSExpdGM7</span>;
+};
+
 export default function Home() {
   let theme = getRandomTheme()
   return (
@@ -21,32 +25,30 @@ export default function Home() {
         <title>RCEFC English Ministries</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
-        <meta name="description" content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world." />
+        <meta
+          name="description"
+          content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world."
+        />
         <meta name="keywords" content="rcefc, english, ministry, em, richmond, church" />
         <meta name="language" content="English" />
       </Head>
 
       <main>
-        <Alert message="In-person worships services resumes on February 13, 2022. No registration is necessary." />
+        <Alert>
+          <span>Registration for Awana 2022/2023 is now open. Register your child <a href="https://forms.gle/qrZjBW8fdSExpdGM7" target="blank">here</a></span>
+        </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
-
             {/**Feature Banner */}
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
-              <p>
-                Come join us for in-person service at 9:30 am!
-              </p>
+              <p>Come join us for in-person service at 9:30 am!</p>
               <div>
                 <Link href="/contacts/location">
-                  <Button>
-                    Join in-person
-                  </Button>
+                  <Button>Join in-person</Button>
                 </Link>
                 <Link href="/join-us/worship">
-                  <Button>
-                    Join online
-                  </Button>
+                  <Button>Join online</Button>
                 </Link>
               </div>
             </LargeBanner>
@@ -55,33 +57,30 @@ export default function Home() {
             <LargeBanner className={theme}>
               <h1>we exist to glorify God by making His gospel known to the world</h1>
               <p>
-                Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit - Matthew 28:19
+                Go therefore and make disciples of all nations, baptizing them in the name of the
+                Father and of the Son and of the Holy Spirit - Matthew 28:19
               </p>
               <div>
                 <Link href="/join-us/worship">
-                  <Button>
-                    Join a service
-                  </Button>
+                  <Button>Join a service</Button>
                 </Link>
                 <Link href="/contacts">
-                  <Button>
-                    Get in touch
-                  </Button>
+                  <Button>Get in touch</Button>
                 </Link>
               </div>
             </LargeBanner>
-
           </Carousel>
-
 
           <SmallBanner className="white">
             <h2>Something for everyone</h2>
-            <p>Community helps us grow, it supports us in times of need and we all need some connection
-              in order for us accomplish more as fellow children of God.</p>
+            <p>
+              Community helps us grow, it supports us in times of need and we all need some
+              connection in order for us accomplish more as fellow children of God.
+            </p>
             <div className={homeStyles.cards_container}>
               <div className={homeStyles.cards_two}>
                 <Card>
-                  <h3 >Sunday Service</h3>
+                  <h3>Sunday Service</h3>
                   <p>EVERY WEEK AT 9:30AM</p>
                   <Link href="/join-us/worship">
                     <Button>Tune in Live</Button>
@@ -128,21 +127,20 @@ export default function Home() {
                 </Card>
               </div>
             </div>
-
           </SmallBanner>
 
           <SmallBanner className={theme}>
             <h2>We're here for you</h2>
-            <p>Our prayer team is ready to work with you for that breakthrough that you need in your life. All prayer requests will remain confidential.</p>
+            <p>
+              Our prayer team is ready to work with you for that breakthrough that you need in your
+              life. All prayer requests will remain confidential.
+            </p>
             <Link href="/forms/prayer">
               <Button>Request Prayer</Button>
             </Link>
           </SmallBanner>
-
         </LayoutV1>
-
       </main>
-
     </div>
-  )
+  );
 }
