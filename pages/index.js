@@ -35,7 +35,12 @@ export default function Home() {
 
       <main>
         <Alert>
-          <span>Registration for Awana 2022/2023 is now open. Register your child <a href="https://forms.gle/qrZjBW8fdSExpdGM7" target="blank">here</a></span>
+          <span>
+            Registration for Awana 2022/2023 is now open. Register your child{" "}
+            <a href="https://forms.gle/qrZjBW8fdSExpdGM7" target="blank">
+              here
+            </a>
+          </span>
         </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
@@ -130,6 +135,23 @@ export default function Home() {
           </SmallBanner>
 
           <SmallBanner className={theme}>
+            <h2>VACANCY OF ADMINISTRATIVE ASSISTANT FOR RCEFC</h2>
+            <p>
+              Richmond Chinese Evangelical Free Church (RCEFC) now has two openings of part- time
+              administrative assistant positions to work at our church office assisting in the
+              operation and management of our office.
+            </p>
+            <p>
+              If you have any questions or would like to apply to any of these positions, please
+              contact Human Resources Committee (HRC) chairman Jeff Tang, phone no.: 778- 238-0979
+              or email: oohjeff@hotmail.com
+            </p>
+            <a href="https://www.rcefc.org/chinese/files/RCEFC%20Administrative%20Assistant%20Job%20Description.pdf" target="_blank">
+              <Button>Administrative Assistant Description</Button>
+            </a>
+          </SmallBanner>
+
+          <SmallBanner className="white">
             <h2>We're here for you</h2>
             <p>
               Our prayer team is ready to work with you for that breakthrough that you need in your
