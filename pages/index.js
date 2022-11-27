@@ -134,7 +134,7 @@ export default function Home() {
             </div>
           </SmallBanner>
 
-          <SmallBanner className="white">
+          <SmallBanner className={theme}>
             <h2>We're here for you</h2>
             <p>
               Our prayer team is ready to work with you for that breakthrough that you need in your
