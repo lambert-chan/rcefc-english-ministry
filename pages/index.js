@@ -134,23 +134,6 @@ export default function Home() {
             </div>
           </SmallBanner>
 
-          <SmallBanner className={theme}>
-            <h2>VACANCY OF ADMINISTRATIVE ASSISTANT FOR RCEFC</h2>
-            <p>
-              Richmond Chinese Evangelical Free Church (RCEFC) now has two openings of part- time
-              administrative assistant positions to work at our church office assisting in the
-              operation and management of our office.
-            </p>
-            <p>
-              If you have any questions or would like to apply to any of these positions, please
-              contact Human Resources Committee (HRC) chairman Jeff Tang, phone no.: 778- 238-0979
-              or email: oohjeff@hotmail.com
-            </p>
-            <a href="https://www.rcefc.org/chinese/files/RCEFC%20Administrative%20Assistant%20Job%20Description.pdf" target="_blank">
-              <Button>Administrative Assistant Description</Button>
-            </a>
-          </SmallBanner>
-
           <SmallBanner className="white">
             <h2>We're here for you</h2>
             <p>
