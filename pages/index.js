@@ -37,7 +37,7 @@ export default function Home() {
         <Alert>
           <span>
             Registration for Awana 2022/2023 is now open. Register your child{" "}
-            <a href="https://forms.gle/qrZjBW8fdSExpdGM7" target="blank">
+            <a href="https://forms.gle/qsXfLYZZ6ehdii2H7" target="blank">
               here
             </a>
           </span>
