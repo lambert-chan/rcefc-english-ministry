@@ -44,20 +44,8 @@ export default function Home() {
         </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
-            {/**Easter 2023 Banner */}
-            <LargeBanner className={theme}>
-              <h1>Good Friday & Easter Sunday Services</h1>
-              <p>Good Friday service will be at 7:00pm!</p>
-              <p>Come join us for an Easter Sunday potluck at 1:30pm. Baptismal service begins at 3:00pm.</p>
-              <div>
-                <Link href="/contacts/location">
-                  <Button>Join in-person</Button>
-                </Link>
-              </div>
-            </LargeBanner>
-
             {/**Feature Banner */}
-            {/* <LargeBanner className={theme}>
+            <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
               <p>Come join us for in-person service at 9:30 am!</p>
               <div>
@@ -68,7 +56,7 @@ export default function Home() {
                   <Button>Join online</Button>
                 </Link>
               </div>
-            </LargeBanner> */}
+            </LargeBanner>
 
             {/** Banner One */}
             <LargeBanner className={theme}>
