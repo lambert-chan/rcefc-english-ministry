@@ -34,14 +34,14 @@ export default function Home() {
       </Head>
 
       <main>
-        {/* <Alert>
+        <Alert>
           <span>
             Registration for Awana 2023/2024 is now open. Register your child{" "}
-            <a href="" target="blank">
+            <a href="https://forms.gle/Tt2UZmrRZ6qPECh67" target="blank">
               here
             </a>
           </span>
-        </Alert> */}
+        </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
             {/**Feature Banner */}
