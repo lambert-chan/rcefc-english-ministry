@@ -8,6 +8,11 @@ import generalStyles from '../../styles/general.module.css'
 
 const { Header, Content, Footer } = Layout;
 
+const getCurrentYear = () => {
+    const date = new Date();
+    return date.getFullYear();
+}
+
 class LayoutV1 extends React.Component {
     render() {
         return (
@@ -30,7 +35,7 @@ class LayoutV1 extends React.Component {
                         {this.props.children}
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                        © 2022 RCEFC English Ministries
+                        © {getCurrentYear()} RCEFC English Ministries
                     </Footer>
                 </Layout>
             </React.Fragment>

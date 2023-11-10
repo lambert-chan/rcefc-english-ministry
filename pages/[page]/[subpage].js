@@ -29,43 +29,46 @@ export default function Page({ pageData }) {
 
     const wp_classes = ['wp-block-group', 'wp-block-column', 'wp-block-group__inner-container']
     const childOptions = {
-        replace: ({ attribs, children }) => {
-            if (!attribs) {
-                return
-            }
-
-            if (wp_classes.includes(attribs.class)) {
-                return (
-                    <div>
-                        {domToReact(children, childOptions)}
-                    </div>
-                );
-            } else if (attribs.class === 'wp-block-columns') {
-                return (
-                    <div className={generalStyles.col_two} style={{ borderBottom: 'none' }}>
-                        {domToReact(children, childOptions)}
-                    </div>
-                )
-            }
+      replace: ({ attribs, children }) => {
+        if (!attribs) {
+          return;
         }
-    }
+
+        if (wp_classes.includes(attribs.class)) {
+          return <div>{domToReact(children, childOptions)}</div>;
+        } else if (attribs.class === "wp-block-columns") {
+          return (
+            <div className={generalStyles.col_two} style={{ borderBottom: "none" }}>
+              {domToReact(children, childOptions)}
+            </div>
+          );
+        } else if (attribs.class?.includes("wp-block-columns") && children.length > 2) {
+          return <div className={generalStyles.columns}>{domToReact(children, childOptions)}</div>;
+        } else if (attribs.class?.includes("wp-block-column")) {
+          return <div className={generalStyles.column}>{domToReact(children, childOptions)}</div>;
+        } else if (attribs.class === "wp-block-file") {
+          return (
+            <div className={generalStyles.block_file}>{domToReact(children, childOptions)}</div>
+          );
+        }
+      },
+    };
 
     const options = {
-        replace: ({ attribs, children }) => {
-            if (!attribs) {
-                return
-            }
-
-            if (attribs.class === 'wp-block-group') {
-                return (
-                    <PageBanner className={++banner_index % 2 == 0 ? theme : 'white'}>
-                        {domToReact(children, childOptions)}
-                    </PageBanner>
-                );
-            }
+      replace: ({ attribs, children }) => {
+        if (!attribs) {
+          return;
         }
-    }
 
+        if (wp_classes.includes(attribs.class)) {
+          return (
+            <PageBanner className={++banner_index % 2 == 0 ? theme : "white"}>
+              {domToReact(children, childOptions)}
+            </PageBanner>
+          );
+        }
+      },
+    };
     let parsed = parse(remove_linebreaks(pageData?.content), options)
     if (parsed[0]?.type == 'p') {
         var description = parsed.shift()

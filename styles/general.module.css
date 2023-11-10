@@ -49,6 +49,46 @@
     font-weight: 600;
 }
 
+.columns {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2em;
+    gap: 1em;
+}
+
+.columns > .column {
+    border: 1px solid #cccccc;
+    flex: 1;
+}
+
+.block_file {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 2em;
+    gap: 2em;
+    align-items: center;
+    height: 100%;
+}
+
+.block_file a:first-of-type {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    pointer-events: none;
+}
+
+.block_file a[download] {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+    font-weight: 600;
+    text-align: center;
+    width: fit-content;
+    padding: 5px 10px;
+}
+
 /**********************************************
 ****************MEDIA QUERIES******************
 ***********************************************/
@@ -69,6 +109,9 @@
     .col_two> :last-child {
         width: 100%;
         margin-top: 3em;
+    }
+    .columns {
+        flex-direction: column;
     }
 }
 
