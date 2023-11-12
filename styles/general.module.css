@@ -59,6 +59,8 @@
 .columns > .column {
     border: 1px solid #cccccc;
     flex: 1;
+    max-width: 280px;
+    overflow: hidden;
 }
 
 .block_file {
