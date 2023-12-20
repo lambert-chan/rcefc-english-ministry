@@ -251,6 +251,10 @@
     .card_content button {
         top: 0;
     }
+    .page_banner img {
+        max-width: 85vw;
+        height: auto;
+    }
 }
 
 @media screen and (max-height: 675px) {
