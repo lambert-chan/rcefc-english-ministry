@@ -12,7 +12,7 @@ const RegisterButton = () => {
   );
 };
 
-const VBSHeader = () => {
+const VBSHeader = ({ isRegistrationOpen }) => {
   const { Header } = Layout;
   const whiteText = {
     color: "#ffffff !important",
@@ -46,12 +46,14 @@ const VBSHeader = () => {
         <h1 style={{ ...whiteText, fontSize: "3rem", fontWeight: "bolder" }}>
           Richmond Chinese Evangelical Free Church
         </h1>
-        <div>
-          <h4 style={{ ...whiteText, fontSize: "1.5rem" }}>
-            Sign your child up today!
-          </h4>
-          <RegisterButton />
-        </div>
+        {isRegistrationOpen && (
+          <div>
+            <h4 style={{ ...whiteText, fontSize: "1.5rem" }}>
+              Sign your child up today!
+            </h4>
+            <RegisterButton />
+          </div>
+        )}
       </div>
     </Header>
   );
@@ -66,14 +68,22 @@ const VBSContent = () => {
 
   return (
     <Content style={contentStyle}>
-      <div style={{ marginTop: "4rem", textAlign: "start" }}>
-        <h1 style={{ fontSize: "2rem", textAlign: "center" }}>Richmond, BC </h1>
+      <div style={{ marginTop: "2rem", textAlign: "start" }}>
         <h5 style={{ fontSize: "1.75rem", textAlign: "center" }}>
-          Mon Aug 19-Fri Aug 23 AT 9 a.m.-12:30 p.m.
+          Date: August 19 (Monday) to 23 (Friday), 2024 Time: 9:00 a.m. to 12:30
+          p.m.
+        </h5>
+        <h5 style={{ fontSize: "1.75rem", textAlign: "center" }}>
+          Fee: Early Bird $65.00 (Until May 31st); Regular $75.00
+        </h5>
+        <h5 style={{ fontSize: "1.75rem", textAlign: "center" }}>
+          Registration begins on May 3rd, 2024
         </h5>
         <hr />
-        <h3 style={{ fontSize: "2.25rem" }}>Description</h3>
-        <p style={{ marginBottom: "3rem" }}>
+        <h3 style={{ fontSize: "2.25rem", padding: "0 5vw" }}>Description</h3>
+        <p
+          style={{ marginBottom: "3rem", padding: "0 5vw", fontSize: "1.1rem" }}
+        >
           Every day, our kids are bombarded with questions: Did God really
           create everything? Why do bad things happen? Was Noah's ark real? Why
           do I need to be saved? Can I trust the Bible? At this VBS, your kids
@@ -147,7 +157,7 @@ const VBSFooter = () => {
   const footerStyle = {
     textAlign: "center",
     color: "#fff",
-    margin: 'auto',
+    margin: "auto",
   };
   const promoteBox = {
     margin: "4rem auto",
@@ -155,12 +165,19 @@ const VBSFooter = () => {
     background: "rgba(0,0,0,0.5)",
     padding: "1rem",
   };
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'underline'
+  }
   return (
     <Footer style={footerStyle}>
       <section style={promoteBox}>
-        <h2 style={{ color: "#ffffff !important" }}>Join Us</h2>
+        <h2 style={{ fontSize: '3rem', color: "#ffffff !important" }}>Join Us</h2>
         <RegisterButton />
-        <div style={{ textAlign: "start", padding:'1rem', maxWidth: '45rem' }}>
+        <div style={{ textAlign: "start", padding: "1rem", maxWidth: "45rem" }}>
+          <h1 style={{ fontSize: "2rem", color: "white !important" }}>
+            After registration
+          </h1>
           <p>
             After filling out the registration form, please see the following
             details:
@@ -175,13 +192,13 @@ const VBSFooter = () => {
           </p>
           <p>
             2. Please email the E-transfer confirmation to{" "}
-            <a href="mailto:rcefc1983@gmail.com">rcefc1983@gmail.com</a> for
+            <a href="mailto:rcefc1983@gmail.com" style={linkStyle}>rcefc1983@gmail.com</a> for
             verification. A confirmation email will be sent to you within the
             next 3 days.
           </p>
           <p>
             If you have any questions, please email{" "}
-            <a href="mailto:rcefc1983@gmail.com">rcefc1983@gmail.com</a>. Thank
+            <a href="mailto:rcefc1983@gmail.com" style={linkStyle}>rcefc1983@gmail.com</a>. Thank
             you.
           </p>
         </div>
@@ -200,6 +217,10 @@ const VBS = () => {
     flexDirection: "column",
   };
 
+  const startDate = new Date("2024-05-03");
+  const currentDate = new Date();
+  const isRegistrationOpen = currentDate > startDate;
+
   return (
     <div>
       <Head>
@@ -214,10 +235,10 @@ const VBS = () => {
         <LayoutV1>
           <div style={flexWrapper}>
             <Layout style={layoutStyle}>
-              <VBSHeader />
+              <VBSHeader isRegistrationOpen={isRegistrationOpen} />
               <VBSContent />
               <VBSMap />
-              <VBSFooter />
+              {isRegistrationOpen && <VBSFooter />}
             </Layout>
           </div>
         </LayoutV1>
