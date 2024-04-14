@@ -40,3 +40,22 @@
 .title {
   margin-bottom: 0;
 }
+
+.vbs {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .vbs {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .vbs div button {
+    margin: 0 auto;
+  }
+  .vbs div {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}

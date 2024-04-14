@@ -3,7 +3,7 @@ import Head from "next/head";
 import LayoutV1 from "../../templates/layout_v1/layout";
 import { Button, Layout } from "antd";
 
-const RegisterButton = () => {
+export const RegisterButton = () => {
   const googleFormUrl = "https://forms.gle/M8ydDyzLR7JyueEM9";
   return (
     <Button href={googleFormUrl} target="_blank">

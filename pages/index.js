@@ -1,16 +1,17 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { Button, Carousel } from 'antd'
-import LayoutV1 from '../templates/layout_v1/layout'
-import { LargeBanner, SmallBanner } from '../components/banners'
-import { Card } from '../components/cards'
-import homeStyles from '../styles/Home.module.css'
-import Alert from '../components/alert'
+import Head from "next/head";
+import Link from "next/link";
+import { Button, Carousel } from "antd";
+import LayoutV1 from "../templates/layout_v1/layout";
+import { LargeBanner, SmallBanner } from "../components/banners";
+import { Card } from "../components/cards";
+import homeStyles from "../styles/Home.module.css";
+import Alert from "../components/alert";
+import { RegisterButton } from "./vbs";
 
 export function getRandomTheme() {
   const theme_count = 4;
   let random_int = Math.floor(Math.random() * Math.floor(theme_count));
-  return `theme_${random_int}`
+  return `theme_${random_int}`;
 }
 
 const AwanaMessage = () => {
@@ -18,32 +19,57 @@ const AwanaMessage = () => {
 };
 
 export default function Home() {
-  let theme = getRandomTheme()
+  let theme = getRandomTheme();
+  const startDate = new Date("2024-05-03");
+  const currentDate = new Date();
+  const isRegistrationOpen = currentDate > startDate;
   return (
     <div>
       <Head>
         <title>RCEFC English Ministries</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Epilogue" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Epilogue"
+        />
         <meta
           name="description"
           content="The English Ministries at Richmond Chinese Evangelical Free Church (RCEFC) exists to glorify God by making His gospel known to the world."
         />
-        <meta name="keywords" content="rcefc, english, ministry, em, richmond, church" />
+        <meta
+          name="keywords"
+          content="rcefc, english, ministry, em, richmond, church"
+        />
         <meta name="language" content="English" />
       </Head>
 
       <main>
         <Alert>
           <span>
-            Registration for Awana 2023/2024 is now open. Register your child{" "}
-            <a href="https://forms.gle/Tt2UZmrRZ6qPECh67" target="blank">
-              here
-            </a>
+            VBS - The Great Jungle Journey begins on August 19th, 2024. Details
+            <a href="/vbs"> here</a>
           </span>
         </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
+            {/** VBS Banner */}
+            <LargeBanner className={theme}>
+              <div className={homeStyles.vbs}>
+                <img
+                  src="https://english.rcefc.org/wp-content/uploads/2024/04/jungle-journey-logo.png"
+                  alt="The Great Jungle Journey"
+                  style={{ width: "50%" }}
+                ></img>
+                <div>
+                  <h2>VBS begins on August 19th, 2024</h2>
+                  <Link href="/vbs">
+                    <Button>Details</Button>
+                  </Link>
+                </div>
+                {isRegistrationOpen && <RegisterButton />}
+              </div>
+            </LargeBanner>
+
             {/**Feature Banner */}
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
@@ -60,10 +86,13 @@ export default function Home() {
 
             {/** Banner One */}
             <LargeBanner className={theme}>
-              <h1>we exist to glorify God by making His gospel known to the world</h1>
+              <h1>
+                we exist to glorify God by making His gospel known to the world
+              </h1>
               <p>
-                Go therefore and make disciples of all nations, baptizing them in the name of the
-                Father and of the Son and of the Holy Spirit - Matthew 28:19
+                Go therefore and make disciples of all nations, baptizing them
+                in the name of the Father and of the Son and of the Holy Spirit
+                - Matthew 28:19
               </p>
               <div>
                 <Link href="/join-us/worship">
@@ -79,8 +108,9 @@ export default function Home() {
           <SmallBanner className="white">
             <h2>Something for everyone</h2>
             <p>
-              Community helps us grow, it supports us in times of need and we all need some
-              connection in order for us accomplish more as fellow children of God.
+              Community helps us grow, it supports us in times of need and we
+              all need some connection in order for us accomplish more as fellow
+              children of God.
             </p>
             <div className={homeStyles.cards_container}>
               <div className={homeStyles.cards_two}>
@@ -137,8 +167,9 @@ export default function Home() {
           <SmallBanner className={theme}>
             <h2>We're here for you</h2>
             <p>
-              Our prayer team is ready to work with you for that breakthrough that you need in your
-              life. All prayer requests will remain confidential.
+              Our prayer team is ready to work with you for that breakthrough
+              that you need in your life. All prayer requests will remain
+              confidential.
             </p>
             <Link href="/forms/prayer">
               <Button>Request Prayer</Button>
