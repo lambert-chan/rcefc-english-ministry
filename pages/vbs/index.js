@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import LayoutV1 from "../../templates/layout_v1/layout";
 import { Button, Layout } from "antd";
+import vbsStyles from "../../styles/vbs.module.css";
 
 export const RegisterButton = () => {
   const googleFormUrl = "https://forms.gle/M8ydDyzLR7JyueEM9";
@@ -14,41 +15,30 @@ export const RegisterButton = () => {
 
 const VBSHeader = ({ isRegistrationOpen }) => {
   const { Header } = Layout;
-  const whiteText = {
-    color: "#ffffff !important",
-  };
-  const headerStyle = {
-    textAlign: "center",
-    backgroundImage:
-      "url(https://english.rcefc.org/wp-content/uploads/2024/04/jungle-journey-header-1.jpg)",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "100%",
-  };
-  const promoteBox = {
-    maxWidth: "45rem",
-    margin: "4rem auto",
-    borderRadius: "5px",
-    background: "rgba(0,0,0,0.5)",
-    padding: "1rem",
-  };
   return (
-    <Header style={headerStyle}>
-      <div style={promoteBox}>
+    <Header className={vbsStyles.header}>
+      <div className={vbsStyles.promoteBox}>
         <img
           src="https://english.rcefc.org/wp-content/uploads/2024/04/jungle-journey-logo.png"
           alt="The Great Jungle Journey"
           style={{ maxWidth: "100%" }}
         ></img>
         <p>
-          <b style={{ ...whiteText, fontSize: "1.5rem" }}>at</b>
+          <b className={vbsStyles.whiteText} style={{ fontSize: "1.5rem" }}>
+            at
+          </b>
         </p>
-        <h1 style={{ ...whiteText, fontSize: "3rem", fontWeight: "bolder" }}>
+        <h1
+          className={vbsStyles.whiteText}
+          style={{
+            fontWeight: "bolder",
+          }}
+        >
           Richmond Chinese Evangelical Free Church
         </h1>
         {isRegistrationOpen && (
           <div>
-            <h4 style={{ ...whiteText, fontSize: "1.5rem" }}>
+            <h4 className={vbsStyles.whiteText} style={{ fontSize: "1.5rem" }}>
               Sign your child up today!
             </h4>
             <RegisterButton />
@@ -61,26 +51,17 @@ const VBSHeader = ({ isRegistrationOpen }) => {
 
 const VBSContent = () => {
   const { Content } = Layout;
-  const contentStyle = {
-    textAlign: "center",
-    padding: "2rem",
-  };
-
   return (
-    <Content style={contentStyle}>
+    <Content className={vbsStyles.content}>
       <div style={{ marginTop: "2rem", textAlign: "start" }}>
-        <h5 style={{ fontSize: "1.75rem", textAlign: "center" }}>
+        <h5>
           Date: August 19 (Monday) to 23 (Friday), 2024 Time: 9:00 a.m. to 12:30
           p.m.
         </h5>
-        <h5 style={{ fontSize: "1.75rem", textAlign: "center" }}>
-          Fee: Early Bird $65.00 (Until May 31st); Regular $75.00
-        </h5>
-        <h5 style={{ fontSize: "1.75rem", textAlign: "center" }}>
-          Registration begins on May 3rd, 2024
-        </h5>
+        <h5>Fee: Early Bird $65.00 (Until May 31st); Regular $75.00</h5>
+        <h5>Registration begins on May 3rd, 2024</h5>
         <hr />
-        <h3 style={{ fontSize: "2.25rem", padding: "0 5vw" }}>Description</h3>
+        <h3>Description</h3>
         <p
           style={{ marginBottom: "3rem", padding: "0 5vw", fontSize: "1.1rem" }}
         >
@@ -154,25 +135,12 @@ const VBSMap = () => {
 
 const VBSFooter = () => {
   const { Footer } = Layout;
-  const footerStyle = {
-    textAlign: "center",
-    color: "#fff",
-    margin: "auto",
-  };
-  const promoteBox = {
-    margin: "4rem auto",
-    borderRadius: "5px",
-    background: "rgba(0,0,0,0.5)",
-    padding: "1rem",
-  };
-  const linkStyle = {
-    color: 'white',
-    textDecoration: 'underline'
-  }
   return (
-    <Footer style={footerStyle}>
-      <section style={promoteBox}>
-        <h2 style={{ fontSize: '3rem', color: "#ffffff !important" }}>Join Us</h2>
+    <Footer className={vbsStyles.footer}>
+      <section className={vbsStyles.promoteBox}>
+        <h2 className={vbsStyles.whiteText} style={{ fontSize: "3rem" }}>
+          Join Us
+        </h2>
         <RegisterButton />
         <div style={{ textAlign: "start", padding: "1rem", maxWidth: "45rem" }}>
           <h1 style={{ fontSize: "2rem", color: "white !important" }}>
@@ -192,14 +160,18 @@ const VBSFooter = () => {
           </p>
           <p>
             2. Please email the E-transfer confirmation to{" "}
-            <a href="mailto:rcefc1983@gmail.com" style={linkStyle}>rcefc1983@gmail.com</a> for
-            verification. A confirmation email will be sent to you within the
-            next 3 days.
+            <a href="mailto:rcefc1983@gmail.com" className={vbsStyles.link}>
+              rcefc1983@gmail.com
+            </a>{" "}
+            for verification. A confirmation email will be sent to you within
+            the next 3 days.
           </p>
           <p>
             If you have any questions, please email{" "}
-            <a href="mailto:rcefc1983@gmail.com" style={linkStyle}>rcefc1983@gmail.com</a>. Thank
-            you.
+            <a href="mailto:rcefc1983@gmail.com" className={vbsStyles.link}>
+              rcefc1983@gmail.com
+            </a>
+            . Thank you.
           </p>
         </div>
       </section>
@@ -238,7 +210,7 @@ const VBS = () => {
               <VBSHeader isRegistrationOpen={isRegistrationOpen} />
               <VBSContent />
               <VBSMap />
-              {isRegistrationOpen && <VBSFooter />}
+              {true && <VBSFooter />}
             </Layout>
           </div>
         </LayoutV1>
