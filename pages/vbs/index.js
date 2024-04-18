@@ -210,7 +210,7 @@ const VBS = () => {
               <VBSHeader isRegistrationOpen={isRegistrationOpen} />
               <VBSContent />
               <VBSMap />
-              {true && <VBSFooter />}
+              {isRegistrationOpen && <VBSFooter />}
             </Layout>
           </div>
         </LayoutV1>
