@@ -55,6 +55,10 @@ const VBSContent = () => {
     <Content className={vbsStyles.content}>
       <div style={{ marginTop: "2rem", textAlign: "start" }}>
         <h5>
+          We cordially invite children who enters kindergarten to grade 7 in
+          September 2024 to join us!
+        </h5>
+        <h5>
           Date: August 19 (Monday) to 23 (Friday), 2024 Time: 9:00 a.m. to 12:30
           p.m.
         </h5>
