@@ -48,8 +48,31 @@
   text-decoration: underline;
 }
 
+.registration_cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+  justify-content: space-evenly;
+}
+
 @media only screen and (max-width: 600px) {
   .header h1 {
     font-size: 2rem;
+  }
+  .registration_cards {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .registration_cards > div {
+    width: 100%;
+  }
+  .registration_cards > div p {
+    font-size: 1.25em;
+  }
+  .registration_cards button {
+    font-size: 1.5em;
+    height: 100%;
   }
 }

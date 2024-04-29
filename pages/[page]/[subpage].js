@@ -46,8 +46,6 @@ export default function Page({ pageData }) {
         return;
       }
 
-      console.log(attribs);
-
       if (wp_classes.includes(attribs.class)) {
         return <div>{domToReact(children, childOptions)}</div>;
       } else if (attribs.class === "wp-block-columns") {
