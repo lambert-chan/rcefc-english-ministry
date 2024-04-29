@@ -3,13 +3,15 @@ import Head from "next/head";
 import LayoutV1 from "../../templates/layout_v1/layout";
 import { Button, Layout } from "antd";
 import vbsStyles from "../../styles/vbs.module.css";
+import Link from "next/link";
 
 export const RegisterButton = () => {
-  const googleFormUrl = "https://forms.gle/M8ydDyzLR7JyueEM9";
   return (
-    <Button href={googleFormUrl} target="_blank">
+    <Link href="/vbs/register">
+    <Button>
       Register Here
     </Button>
+    </Link>
   );
 };
 

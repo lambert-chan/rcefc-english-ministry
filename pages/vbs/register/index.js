@@ -12,23 +12,23 @@ const RegistrationCards = () => {
       <Card>
         <h3>Pre-Primary</h3>
         <p>Kindergarten and Grade 1 in September 2024.</p>
-        <a href="https://forms.gle/37fuJ3xFLxpcUcGRA" target="blank">
-          <Button>Register</Button>
-        </a>
+        <Button href="https://forms.gle/37fuJ3xFLxpcUcGRA" target="_blank">
+          Register
+        </Button>
       </Card>
       <Card>
         <h3>Primary</h3>
         <p>Grade 2 - Grade 4 in September 2024.</p>
-        <a href="https://forms.gle/M8WgiPwtkAucUJfY7" target="blank">
-          <Button>Register</Button>
-        </a>
+        <Button href="https://forms.gle/M8WgiPwtkAucUJfY7" target="_blank">
+          Register
+        </Button>
       </Card>
       <Card>
         <h3>Junior</h3>
         <p>Grade 5 - Grade 7 in September 2024.</p>
-        <a href="https://forms.gle/CM58b8RADmLdzbzH6" target="blank">
-          <Button>Register</Button>
-        </a>
+        <Button href="https://forms.gle/CM58b8RADmLdzbzH6" target="blank">
+          Register
+        </Button>
       </Card>
     </Layout>
   );
