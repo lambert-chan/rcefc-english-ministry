@@ -56,7 +56,7 @@ const VBSFooter = () => {
           </p>
           <p>
             1. Your spot will be secured upon receipt of payment through
-            E-transfer to rcefc@hotmail.com. Please indicate "VBS, name of your
+            E-transfer to offering@rcefc.org. Please indicate "VBS, name of your
             child" in the comment box when sending the payment.
           </p>
           <p>
