@@ -65,8 +65,10 @@ export default function Home() {
                   <Link href="/vbs">
                     <Button>Details</Button>
                   </Link>
+                  <Link href="/vbs/register">
+                    <Button>Register</Button>
+                  </Link>
                 </div>
-                {isRegistrationOpen && <RegisterButton />}
               </div>
             </LargeBanner>
 
