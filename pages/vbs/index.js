@@ -38,14 +38,14 @@ export const VBSHeader = ({ isRegistrationOpen }) => {
         >
           Richmond Chinese Evangelical Free Church
         </h1>
-        {/* {isRegistrationOpen && (
+        {isRegistrationOpen && (
           <div>
             <h4 className={vbsStyles.whiteText} style={{ fontSize: "1.5rem" }}>
               Sign your child up today!
             </h4>
             <RegisterButton />
           </div>
-        )} */}
+        )}
       </div>
     </Header>
   );
@@ -163,7 +163,7 @@ const VBS = () => {
     flexDirection: "column",
   };
 
-  const startDate = new Date("2024-05-05");
+  const startDate = new Date("2024-05-03");
   const currentDate = new Date();
   const isRegistrationOpen = currentDate > startDate;
 
@@ -184,7 +184,7 @@ const VBS = () => {
               <VBSHeader isRegistrationOpen={isRegistrationOpen} />
               <VBSContent />
               <VBSMap />
-              {/* {isRegistrationOpen && <VBSFooter />} */}
+              {isRegistrationOpen && <VBSFooter />}
             </Layout>
           </div>
         </LayoutV1>
