@@ -3,17 +3,19 @@ import Head from "next/head";
 import LayoutV1 from "../../templates/layout_v1/layout";
 import { Button, Layout } from "antd";
 import vbsStyles from "../../styles/vbs.module.css";
+import Link from "next/link";
 
 export const RegisterButton = () => {
-  const googleFormUrl = "https://forms.gle/M8ydDyzLR7JyueEM9";
   return (
-    <Button href={googleFormUrl} target="_blank">
+    <Link href="/vbs/register">
+    <Button>
       Register Here
     </Button>
+    </Link>
   );
 };
 
-const VBSHeader = ({ isRegistrationOpen }) => {
+export const VBSHeader = ({ isRegistrationOpen }) => {
   const { Header } = Layout;
   return (
     <Header className={vbsStyles.header}>
@@ -146,38 +148,6 @@ const VBSFooter = () => {
           Join Us
         </h2>
         <RegisterButton />
-        <div style={{ textAlign: "start", padding: "1rem", maxWidth: "45rem" }}>
-          <h1 style={{ fontSize: "2rem", color: "white !important" }}>
-            After registration
-          </h1>
-          <p>
-            After filling out the registration form, please see the following
-            details:
-          </p>
-          <p>
-            1. Your spot will be secured upon receipt of payment through
-            E-transfer to rcefc@hotmail.com. Please indicate "VBS, name of your
-            child" in the comment box when sending the payment. Registration
-            Fee: Payment made on or before May 31: $65 ($70 with VBS Music
-            digital file download) Payment made on June 1 and after: $75 ($80
-            with VBS Music digital file download)
-          </p>
-          <p>
-            2. Please email the E-transfer confirmation to{" "}
-            <a href="mailto:rcefc1983@gmail.com" className={vbsStyles.link}>
-              rcefc1983@gmail.com
-            </a>{" "}
-            for verification. A confirmation email will be sent to you within
-            the next 3 days.
-          </p>
-          <p>
-            If you have any questions, please email{" "}
-            <a href="mailto:rcefc1983@gmail.com" className={vbsStyles.link}>
-              rcefc1983@gmail.com
-            </a>
-            . Thank you.
-          </p>
-        </div>
       </section>
     </Footer>
   );
