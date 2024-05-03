@@ -20,9 +20,7 @@ const AwanaMessage = () => {
 
 export default function Home() {
   let theme = getRandomTheme();
-  const startDate = new Date("2024-05-03");
-  const currentDate = new Date();
-  const isRegistrationOpen = currentDate > startDate;
+
   return (
     <div>
       <Head>
@@ -66,7 +64,6 @@ export default function Home() {
                     <Button>Details</Button>
                   </Link>
                 </div>
-                {isRegistrationOpen && <RegisterButton />}
               </div>
             </LargeBanner>
 
