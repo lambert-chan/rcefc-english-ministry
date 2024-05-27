@@ -131,6 +131,10 @@ const RCEFCMenu = ({ className }) => {
                     title: 'Pastoral Team',
                     slug: 'pastoral-team'
                 },
+                {
+                    title: 'Resources',
+                    slug: 'resources'
+                },
             ]
         },
         {
