@@ -70,6 +70,17 @@ export default function Home() {
               </div>
             </LargeBanner>
 
+            {/** Survey Banner June 18 - June 30, 2024 */}
+            <LargeBanner className={theme}>
+              <h1>Benevolent Fund Donations Survey</h1>
+              <p>Fill out the 2024 Benevolent Fund Donations Survey here</p>
+              <div>
+                <a href="https://forms.gle/fFgndWfHr3SGAyLNA" target="blank">
+                  <Button>Complete survey</Button>
+                </a>
+              </div>
+            </LargeBanner>
+
             {/**Feature Banner */}
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
