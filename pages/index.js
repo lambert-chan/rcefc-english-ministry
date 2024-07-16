@@ -6,17 +6,12 @@ import { LargeBanner, SmallBanner } from "../components/banners";
 import { Card } from "../components/cards";
 import homeStyles from "../styles/Home.module.css";
 import Alert from "../components/alert";
-import { RegisterButton } from "./vbs";
 
 export function getRandomTheme() {
   const theme_count = 4;
   let random_int = Math.floor(Math.random() * Math.floor(theme_count));
   return `theme_${random_int}`;
 }
-
-const AwanaMessage = () => {
-  <span>Registration for https://forms.gle/qrZjBW8fdSExpdGM7</span>;
-};
 
 export default function Home() {
   let theme = getRandomTheme();
@@ -44,42 +39,12 @@ export default function Home() {
       <main>
         <Alert>
           <span>
-            VBS - The Great Jungle Journey begins on August 19th, 2024. Details
-            <a href="/vbs"> here</a>
+            Registration is open for Awana 2024/2025
+            https://forms.gle/8f1Cy2aq3C6wMnin9
           </span>
         </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
-            {/** VBS Banner */}
-            <LargeBanner className={theme}>
-              <div className={homeStyles.vbs}>
-                <img
-                  src="https://english.rcefc.org/wp-content/uploads/2024/04/jungle-journey-logo.png"
-                  alt="The Great Jungle Journey"
-                  style={{ width: "50%" }}
-                ></img>
-                <div>
-                  <h2>VBS begins on August 19th, 2024</h2>
-                  <Link href="/vbs">
-                    <Button>Details</Button>
-                  </Link>
-                  <Link href="/vbs/register">
-                    <Button>Register</Button>
-                  </Link>
-                </div>
-              </div>
-            </LargeBanner>
-
-            {/** Survey Banner June 18 - June 30, 2024 */}
-            <LargeBanner className={theme}>
-              <h1>Benevolent Fund Donations Survey</h1>
-              <p>Fill out the 2024 Benevolent Fund Donations Survey here</p>
-              <div>
-                <a href="https://forms.gle/fFgndWfHr3SGAyLNA" target="blank">
-                  <Button>Complete survey</Button>
-                </a>
-              </div>
-            </LargeBanner>
 
             {/**Feature Banner */}
             <LargeBanner className={theme}>
