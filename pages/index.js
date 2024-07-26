@@ -40,7 +40,7 @@ export default function Home() {
         <Alert>
           <span>
             Registration is open for Awana 2024/2025
-            https://forms.gle/8f1Cy2aq3C6wMnin9
+            <a href="https://forms.gle/8f1Cy2aq3C6wMnin9" target="_blank">here</a>
           </span>
         </Alert>
         <LayoutV1>
