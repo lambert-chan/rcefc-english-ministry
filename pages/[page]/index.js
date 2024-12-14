@@ -60,8 +60,8 @@ export default function Page({ pageData }) {
 
   const RESOURCE_PAGE_SLUG = "resources";
   const reorderedAboutPages =
-    pageData.slug === "about"
-      ? pageData.children.edges.sort((a, b) => {
+    pageData?.slug === "about"
+      ? pageData?.children?.edges?.sort((a, b) => {
           const { slug: aSlug } = a.node;
           const { slug: bSlug } = b.node;
           // make resource last
@@ -164,7 +164,7 @@ export default function Page({ pageData }) {
             )}
 
             {/* About pages layout */}
-            {reorderedAboutPages.map((edge) => {
+            {reorderedAboutPages?.map((edge) => {
               let subpage = edge.node;
               let parsed = parse(remove_linebreaks(subpage.content), options);
               return (
