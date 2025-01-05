@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Button, Carousel } from "antd";
@@ -5,7 +6,14 @@ import LayoutV1 from "../templates/layout_v1/layout";
 import { LargeBanner, SmallBanner } from "../components/banners";
 import { Card } from "../components/cards";
 import homeStyles from "../styles/Home.module.css";
+import eventStyles from "../styles/events.module.css";
 import Alert from "../components/alert";
+import { getAllEvents } from "../lib/api";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+
+const localizer = momentLocalizer(moment);
 
 export function getRandomTheme() {
   const theme_count = 4;
@@ -13,8 +21,24 @@ export function getRandomTheme() {
   return `theme_${random_int}`;
 }
 
-export default function Home() {
+export default function Home({ events }) {
   let theme = getRandomTheme();
+
+  const [calendarView, setCalendarView] = React.useState("month");
+  const [calendarDate, setCalendarDate] = React.useState(new Date());
+
+  const calendarEvents = events.map((event) => {
+    return {
+      title: event.title,
+      start: new Date(event.startDate),
+      end: new Date(event.endDate),
+    };
+  });
+
+  const onSelectEvent = (event) => {
+    setCalendarView("day");
+    setCalendarDate(event.start);
+  };
 
   return (
     <div>
@@ -39,13 +63,14 @@ export default function Home() {
       <main>
         <Alert>
           <span>
-            Registration is open for Awana 2024/2025
-            <a href="https://forms.gle/8f1Cy2aq3C6wMnin9" target="_blank">here</a>
+            Registration is open for Awana 2024/2025{` `}
+            <a href="https://forms.gle/8f1Cy2aq3C6wMnin9" target="_blank">
+              here
+            </a>
           </span>
         </Alert>
         <LayoutV1>
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
-
             {/**Feature Banner */}
             <LargeBanner className={theme}>
               <h1>Attend In-Person Worship</h1>
@@ -82,6 +107,28 @@ export default function Home() {
           </Carousel>
 
           <SmallBanner className="white">
+            <h1>Upcoming Events</h1>
+            <div className={eventStyles.calendarWrapper}>
+              <Calendar
+                localizer={localizer}
+                events={calendarEvents}
+                startAccessor="start"
+                endAccessor="end"
+                style={{ height: 500 }}
+                view={calendarView}
+                onSelectEvent={onSelectEvent}
+                date={calendarDate}
+                onView={(view) => {
+                  setCalendarView(view);
+                }}
+                onNavigate={(date) => {
+                  setCalendarDate(date);
+                }}
+              />
+            </div>
+          </SmallBanner>
+
+          <SmallBanner className={theme}>
             <h2>Something for everyone</h2>
             <p>
               Community helps us grow, it supports us in times of need and we
@@ -140,7 +187,7 @@ export default function Home() {
             </div>
           </SmallBanner>
 
-          <SmallBanner className={theme}>
+          <SmallBanner className="white">
             <h2>We're here for you</h2>
             <p>
               Our prayer team is ready to work with you for that breakthrough
@@ -155,4 +202,14 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const data = await getAllEvents();
+  console.log(`Getting events:`, data?.nodes?.length);
+  return {
+    props: {
+      events: data?.nodes?.length ? data.nodes : [],
+    },
+  };
 }
