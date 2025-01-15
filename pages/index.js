@@ -6,14 +6,10 @@ import LayoutV1 from "../templates/layout_v1/layout";
 import { LargeBanner, SmallBanner } from "../components/banners";
 import { Card } from "../components/cards";
 import homeStyles from "../styles/Home.module.css";
-import eventStyles from "../styles/events.module.css";
 import Alert from "../components/alert";
-import { getAllEvents } from "../lib/api";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 
-const localizer = momentLocalizer(moment);
+const CALENDAR_2024_ICS_URL =
+  "https://outlook.office365.com/owa/calendar/3963f82bf0b24a3984e6d276201a8a61@rcefc.org/e8084c75d4f14bfa8db3d96332a305019146811130540120418/calendar.ics";
 
 export function getRandomTheme() {
   const theme_count = 4;
@@ -21,24 +17,8 @@ export function getRandomTheme() {
   return `theme_${random_int}`;
 }
 
-export default function Home({ events }) {
+export default function Home() {
   let theme = getRandomTheme();
-
-  const [calendarView, setCalendarView] = React.useState("month");
-  const [calendarDate, setCalendarDate] = React.useState(new Date());
-
-  const calendarEvents = events.map((event) => {
-    return {
-      title: event.title,
-      start: new Date(event.startDate),
-      end: new Date(event.endDate),
-    };
-  });
-
-  const onSelectEvent = (event) => {
-    setCalendarView("day");
-    setCalendarDate(event.start);
-  };
 
   return (
     <div>
@@ -108,24 +88,15 @@ export default function Home({ events }) {
 
           <SmallBanner className="white">
             <h1>Upcoming Events</h1>
-            <div className={eventStyles.calendarWrapper}>
-              <Calendar
-                localizer={localizer}
-                events={calendarEvents}
-                startAccessor="start"
-                endAccessor="end"
-                style={{ height: 500 }}
-                view={calendarView}
-                onSelectEvent={onSelectEvent}
-                date={calendarDate}
-                onView={(view) => {
-                  setCalendarView(view);
-                }}
-                onNavigate={(date) => {
-                  setCalendarDate(date);
-                }}
-              />
-            </div>
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=po2v2oodqe14h6kf9a83u6mm7bms66tc%40import.calendar.google.com&ctz=America%2FVancouver"
+              style={{ margin: "1rem 0", width: "100%", height: "75vh" }}
+              width="800"
+              height="600"
+            ></iframe>
+            <Button href={CALENDAR_2024_ICS_URL} class="button" download>
+              EM Calendar 2024 (.ics)
+            </Button>
           </SmallBanner>
 
           <SmallBanner className={theme}>
@@ -202,14 +173,4 @@ export default function Home({ events }) {
       </main>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const data = await getAllEvents();
-  console.log(`Getting events:`, data?.nodes?.length);
-  return {
-    props: {
-      events: data?.nodes?.length ? data.nodes : [],
-    },
-  };
 }
