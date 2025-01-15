@@ -53,8 +53,8 @@ export default function Home() {
           <Carousel autoplay speed={3000} autoplaySpeed={10000}>
             {/**Feature Banner */}
             <LargeBanner className={theme}>
-              <h1>Attend In-Person Worship</h1>
-              <p>Come join us for in-person service at 9:30 am!</p>
+              <h1>attend worship</h1>
+              <p>Come join us for service at 9:30 am!</p>
               <div>
                 <Link href="/contacts/location">
                   <Button>Join in-person</Button>
