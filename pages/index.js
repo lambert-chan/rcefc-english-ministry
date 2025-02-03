@@ -42,14 +42,11 @@ export default function Home() {
 
       <main>
         <Alert>
-          {/* <span>
+          <span>
             Registration is open for Awana 2024/2025{` `}
             <a href="https://forms.gle/8f1Cy2aq3C6wMnin9" target="_blank">
               here
             </a>
-          </span> */}
-          <span>
-            As there's heavy snow we recommend you to join us online on <a href="https://tinyurl.com/rcefc-em-worship">zoom</a>
           </span>
         </Alert>
         <LayoutV1>
