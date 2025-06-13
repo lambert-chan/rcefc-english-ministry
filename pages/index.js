@@ -43,8 +43,8 @@ export default function Home() {
       <main>
         <Alert>
           <span>
-            Registration is open for Awana 2024/2025{` `}
-            <a href="https://forms.gle/8f1Cy2aq3C6wMnin9" target="_blank">
+            Registration is open for Awana 2025/2026{` `}
+            <a href="https://forms.gle/ER8acwytNJNG7Lpf6" target="_blank">
               here
             </a>
           </span>
